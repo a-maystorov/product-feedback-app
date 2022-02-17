@@ -23,6 +23,13 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.container {
+  max-width: 327px;
+  margin: 4.7rem auto;
+  border-radius: 10px;
+  background-color: var(--color-white-primary);
+}
+
 /* Typography */
 
 html {
@@ -58,11 +65,4 @@ h4 {
   font-size: 1.4rem;
   line-height: 2rem;
   letter-spacing: -0.2px;
-}
-
-.container {
-  max-width: 327px;
-  margin: 4.7rem auto;
-  border-radius: 10px;
-  background-color: var(--color-white-primary);
 }

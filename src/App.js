@@ -1,14 +1,10 @@
 import Button from './components/common/Button';
+import Upvote from './components/common/Upvote';
 
 const App = () => {
   return (
     <div className="container">
-      <div className="btn-container">
-        <Button bgColor={'red'} content={'Post'} />
-        <Button bgColor={'purple'} content={'+ Add Request'} />
-        <Button bgColor={'gray'} content={'Edit'} />
-        <Button bgColor={'blue'} content={'Rename'} />
-      </div>
+      <Upvote direction={'col'} upvotes={99} />
     </div>
   );
 };
