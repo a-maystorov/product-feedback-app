@@ -1,0 +1,38 @@
+.btn {
+  cursor: pointer;
+  color: var(--color-white-secondary);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 40px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.23rem;
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    height: 44px;
+  }
+}
+
+.bg-purple {
+  background-color: var(--color-purple);
+}
+
+.bg-blue {
+  background-color: var(--color-blue-primary);
+}
+
+.bg-gray {
+  background-color: var(--color-gray-primary);
+}
+
+.bg-red {
+  background-color: #d73737;
+}
+
+.btn:hover {
+  opacity: 0.5;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
