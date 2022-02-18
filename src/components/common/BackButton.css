@@ -1,0 +1,44 @@
+.back-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.567rem;
+  border: none;
+  width: 78.67px;
+  height: 20px;
+}
+
+.btn-text {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.23rem;
+  white-space: nowrap;
+}
+
+.btn-light {
+  background: transparent;
+  color: var(--color-gray-accent);
+}
+
+.btn-light:hover .btn-text {
+  text-decoration: underline;
+  text-decoration-color: var(--color-gray-accent);
+  text-decoration-thickness: 0.7px;
+}
+
+.btn-dark {
+  border-radius: 10px;
+  background: var(--color-gray-primary);
+  color: var(--color-white-primary);
+}
+
+.btn-dark .left-arrow {
+  stroke: #cdd2ee;
+}
+
+.btn-dark:hover .btn-text {
+  text-decoration: underline;
+  text-decoration-color: var(--color-white-primary);
+  text-decoration-thickness: 0.7px;
+}
