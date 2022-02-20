@@ -1,0 +1,11 @@
+.comments {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  letter-spacing: -0.18px;
+  color: var(--color-gray-primary);
+}

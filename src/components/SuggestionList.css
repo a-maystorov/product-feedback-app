@@ -1,0 +1,38 @@
+.suggestion-list {
+  background: var(--color-white-secondary);
+}
+
+.suggestion-list__item {
+  background: var(--color-white-primary);
+  margin-bottom: 1.6rem;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 2.4rem;
+}
+
+.suggestion-list__header h2 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  letter-spacing: -0.18px;
+  color: var(--color-gray-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.suggestion-list__header p {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  color: var(--color-gray-accent);
+  margin-bottom: 0.8rem;
+}
+
+.suggestion-list__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -25,9 +25,10 @@
 
 .container {
   max-width: 327px;
+  width: 100%;
   margin: 4.7rem auto;
   border-radius: 10px;
-  background-color: var(--color-white-primary);
+  /* background: var(--color-white-secondary); */
 }
 
 /* Typography */
