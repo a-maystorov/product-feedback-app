@@ -1,5 +1,4 @@
 .category {
-  cursor: pointer;
   border: none;
   border-radius: 10px;
   height: 30px;
@@ -14,6 +13,10 @@
   padding-block: 0.5rem;
 }
 
-.category:hover {
+.category--clickable {
+  cursor: pointer;
+}
+
+.category--clickable:hover {
   background: #cfd7ff;
 }
