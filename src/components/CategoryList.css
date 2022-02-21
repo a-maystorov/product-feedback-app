@@ -1,0 +1,15 @@
+.category-list {
+  max-width: 223px;
+  max-height: 178px;
+  background-color: var(--color-white-primary);
+  padding: 2.4rem;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0 auto;
+}
+
+.category-list__item {
+  margin-bottom: 0.6rem;
+}
