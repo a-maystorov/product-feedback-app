@@ -12,6 +12,8 @@
   justify-content: center;
   gap: 1.6rem;
   padding: 2.4rem;
+  max-height: 233px;
+  height: 100%;
 }
 
 .suggestion-list__header h2 {
@@ -35,4 +37,84 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Roadmap styles */
+.status {
+  display: none;
+}
+
+.in-progress .status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  text-transform: capitalize;
+  color: var(--color-gray-accent);
+}
+
+.in-progress .status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-purple);
+  border-radius: 50%;
+}
+
+.in-progress .suggestion-list__item {
+  border-radius: 5px;
+  border-top: 6px solid var(--color-purple);
+}
+
+.planned .status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  text-transform: capitalize;
+  color: var(--color-gray-accent);
+}
+
+.planned .status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-orange);
+  border-radius: 50%;
+}
+
+.planned .suggestion-list__item {
+  border-radius: 5px;
+  border-top: 6px solid var(--color-orange);
+}
+
+.live .status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  text-transform: capitalize;
+  color: var(--color-gray-accent);
+}
+
+.live .status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-blue-secondary);
+  border-radius: 50%;
+}
+
+.live .suggestion-list__item {
+  border-radius: 5px;
+  border-top: 6px solid var(--color-blue-secondary);
 }

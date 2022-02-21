@@ -8,9 +8,8 @@ const CategoryList = ({ currentCategory, changeCategory }) => {
   return (
     <div className="category-list">
       {categoryList.map((category) => (
-        <div className="category-list__item">
+        <div key={category} className="category-list__item">
           <button
-            key={category}
             className={`category category--clickable ${
               currentCategory === category ? 'active' : null
             }`}

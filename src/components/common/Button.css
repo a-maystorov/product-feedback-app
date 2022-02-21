@@ -6,8 +6,10 @@
   width: 100%;
   height: 40px;
   font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 2.23rem;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  padding-inline: 1.6rem;
+  padding-block: 1.05rem;
 }
 
 @media screen and (min-width: 768px) {

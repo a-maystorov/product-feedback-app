@@ -11,6 +11,10 @@ const SuggestionList = ({ suggestions }) => {
       {suggestions.map((suggestion) => (
         <div className="suggestion-list__item" key={suggestion.id}>
           <header className="suggestion-list__header">
+            <div className="status">
+              <div className="status-dot"></div>
+              {suggestion.status}
+            </div>
             <h2>{suggestion.title}</h2>
             <p>{suggestion.description}</p>
             <Category category={suggestion.category} />

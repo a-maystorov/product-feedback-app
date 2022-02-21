@@ -2,6 +2,9 @@ import CategoryList from './components/CategoryList';
 import SuggestionList from './components/SuggestionList';
 import { useState } from 'react';
 import data from './data.json';
+import RoadmapList from './components/RoadmapList';
+import InProgress from './components/InProgress';
+import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
 
 const { productRequests } = data;
 
@@ -29,11 +32,19 @@ const App = () => {
 
   return (
     <div>
-      <CategoryList
+      {/* <CategoryList
         currentCategory={currentCategory}
         changeCategory={changeCategory}
       />
-      <SuggestionList suggestions={suggestions} />
+      <SuggestionList suggestions={suggestions} /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/roadmap-list/*"
+            element={<RoadmapList data={productRequests} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
