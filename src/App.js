@@ -1,20 +1,44 @@
+import { useState } from 'react';
+import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
 import CategoryList from './components/CategoryList';
 import SuggestionList from './components/SuggestionList';
-import { useState } from 'react';
-import data from './data.json';
 import RoadmapList from './components/RoadmapList';
 import InProgress from './components/InProgress';
-import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
+import SortByButton from './components/SortByButton';
+
+import data from './data.json';
 
 const { productRequests } = data;
 
 const App = () => {
   const [currentCategory, setCurrentCategory] = useState('all');
+  const [currentCriteria, setCurrentCriteria] = useState('Most Upvotes');
 
-  const changeCategory = (newCaregory) => setCurrentCategory(newCaregory);
+  const changeCategory = (newCategory) => setCurrentCategory(newCategory);
+  const changeCriteria = (newCriteria) => setCurrentCriteria(newCriteria);
 
-  const suggestions = productRequests
-    ? productRequests.filter((suggestion) => {
+  const sortedSuggestions = productRequests
+    ? productRequests.sort((a, b) => {
+        const commentsA = a.comments ? a.comments.length : 0;
+        const commentsB = b.comments ? b.comments.length : 0;
+
+        switch (currentCriteria) {
+          case 'Most Upvotes':
+            return b.upvotes - a.upvotes;
+          case 'Least Upvotes':
+            return a.upvotes - b.upvotes;
+          case 'Most Comments':
+            return commentsB - commentsA;
+          case 'Least Comments':
+            return commentsA - commentsB;
+          default:
+            return b.upvotes - a.upvotes;
+        }
+      })
+    : null;
+
+  const suggestions = sortedSuggestions
+    ? sortedSuggestions.filter((suggestion) => {
         switch (currentCategory) {
           case 'all':
             return true;
@@ -32,11 +56,15 @@ const App = () => {
 
   return (
     <div>
+      <SortByButton
+        currentCriteria={currentCriteria}
+        changeCriteria={changeCriteria}
+      />
       {/* <CategoryList
         currentCategory={currentCategory}
         changeCategory={changeCategory}
-      />
-      <SuggestionList suggestions={suggestions} /> */}
+      /> */}
+      <SuggestionList suggestions={suggestions} />
       <BrowserRouter>
         <Routes>
           <Route

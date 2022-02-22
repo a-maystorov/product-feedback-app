@@ -1,0 +1,32 @@
+.dd-btn {
+  max-width: 194px;
+  max-height: 72px;
+  font-size: 1.4rem;
+  line-height: 2.23rem;
+  background: var(--color-gray-primary);
+  color: var(--color-white-primary);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+
+.dd-btn--open {
+  color: var(--color-gray-accent);
+}
+
+.dd-btn__down-arrow {
+  stroke: var(--color-white-primary);
+}
+
+.dd-btn__sort-by {
+  font-weight: 400;
+}
+
+.dd-btn__criteria {
+  font-weight: 700;
+}

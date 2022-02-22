@@ -7,7 +7,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin: 0 auto;
 }
 
 .category-list__item {
