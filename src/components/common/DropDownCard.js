@@ -2,11 +2,11 @@ import './DropDownCard.css';
 
 const DropDownCard = ({
   sortingCriteria = [],
-  currentCriteria,
-  changeCriteria,
+  currentSortCriteria,
+  changeSortCriteria,
   setOpen,
 }) => {
-  const handleClick = (newCriteria) => changeCriteria(newCriteria);
+  const handleClick = (newCriteria) => changeSortCriteria(newCriteria);
 
   return (
     <div className="dd-criteria-list">
@@ -15,7 +15,7 @@ const DropDownCard = ({
           <li
             key={criteria}
             className={`criteria ${
-              currentCriteria === criteria ? 'current-criteria' : null
+              currentSortCriteria === criteria ? 'current-criteria' : null
             }`}
             onClick={() => {
               handleClick(criteria);

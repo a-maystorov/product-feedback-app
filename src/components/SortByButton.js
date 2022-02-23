@@ -9,7 +9,7 @@ const sortingCriteria = [
   'Least Comments',
 ];
 
-const SortByButton = ({ currentCriteria, changeCriteria }) => {
+const SortByButton = ({ currentSortCriteria, changeSortCriteria }) => {
   const [open, setOpen] = useState(false);
 
   const drop = useRef(null);
@@ -31,15 +31,15 @@ const SortByButton = ({ currentCriteria, changeCriteria }) => {
         onClick={() => {
           setOpen((open) => !open);
         }}
-        currentCriteria={currentCriteria}
+        currentSortCriteria={currentSortCriteria}
         isOpen={open}
       />
       {open && (
         <DropDownCard
           sortingCriteria={sortingCriteria}
           setOpen={setOpen}
-          currentCriteria={currentCriteria}
-          changeCriteria={changeCriteria}
+          currentSortCriteria={currentSortCriteria}
+          changeSortCriteria={changeSortCriteria}
         />
       )}
     </div>

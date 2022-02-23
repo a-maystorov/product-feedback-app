@@ -1,0 +1,13 @@
+.Home__header {
+  background: var(--color-gray-primary);
+  width: 100%;
+  height: 56px;
+  margin-bottom: 3.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Home__header__add-feedback--container {
+  width: 134px;
+}

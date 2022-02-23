@@ -1,12 +1,12 @@
 import './DropDownButton.css';
 
-const DropDownButton = ({ onClick, currentCriteria, isOpen }) => {
+const DropDownButton = ({ onClick, currentSortCriteria, isOpen }) => {
   return (
     <button
       className={`dd-btn ${isOpen ? 'dd-btn--open' : null}`}
       onClick={onClick}>
       <span className="dd-btn__sort-by">Sort by :</span>
-      <span className="dd-btn__criteria">{currentCriteria}</span>
+      <span className="dd-btn__criteria">{currentSortCriteria}</span>
       <svg
         width="10"
         height="7"
@@ -14,7 +14,7 @@ const DropDownButton = ({ onClick, currentCriteria, isOpen }) => {
         transform={isOpen ? 'rotate(180)' : null}>
         <path
           className="dd-btn__down-arrow"
-          d="M1 1l4 4 4-4"
+          d="M1 1.5l4 4 4-4"
           stroke="#4661E6"
           strokeWidth="2"
           fill="none"

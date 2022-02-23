@@ -10,9 +10,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.9rem;
-  margin-bottom: 1.6rem;
 }
 
 .dd-btn--open {
