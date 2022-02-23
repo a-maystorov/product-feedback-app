@@ -1,0 +1,25 @@
+.App {
+  background: var(--color-white-secondary);
+  min-height: 100vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.App.dark {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.overflowY-hidden {
+  overflow-y: hidden;
+}
+
+.d-none {
+  display: none;
+}
+
+.container {
+  max-width: 327px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}

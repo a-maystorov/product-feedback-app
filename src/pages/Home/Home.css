@@ -11,3 +11,11 @@
 .Home__header__add-feedback--container {
   width: 134px;
 }
+
+.Home__header.dark {
+  filter: brightness(50%);
+}
+
+.Home main.dark {
+  filter: brightness(53%);
+}

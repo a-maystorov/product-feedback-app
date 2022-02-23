@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
 import CategoryList from './components/CategoryList';
 import RoadmapList from './components/RoadmapList';
@@ -8,9 +9,18 @@ import data from './data.json';
 import Roadmap from './components/Roadmap';
 import Home from './pages/Home/Home';
 
+import './App.css';
+
 const { productRequests } = data;
 
 const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+    document.body.classList.toggle('overflowY-hidden');
+  };
+
   const planned = [];
   const inProgress = [];
   const live = [];
@@ -22,8 +32,15 @@ const App = () => {
   });
 
   return (
-    <div>
-      <Home suggestionRequests={productRequests} />
+    <div className={`App ${menuOpen ? 'dark' : null}`}>
+      <Home
+        suggestionRequests={productRequests}
+        plannedLength={planned.length}
+        inProgressLength={inProgress.length}
+        liveLength={live.length}
+        menuOpen={menuOpen}
+        handleMenuToggle={handleMenuToggle}
+      />
       {/* <Roadmap
         plannedLength={planned.length}
         inProgressLength={inProgress.length}

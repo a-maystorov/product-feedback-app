@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
 :root {
   --color-purple: #ad1fea;
@@ -23,25 +23,16 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.container {
-  max-width: 327px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 10px;
-  /* background: var(--color-white-secondary); */
-}
-
 /* Typography */
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
 }
 
 body {
-  background: var(--color-white-secondary);
   font-size: 1.6rem;
   line-height: 2.3rem;
+  overflow-x: hidden;
 }
 
 h1 {

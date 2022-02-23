@@ -2,13 +2,22 @@ import { useState } from 'react';
 
 // Components
 import Button from '../../components/common/Button';
+import NavBar from '../../components/NavBar';
+import SideBar from '../../components/SideBar';
 import SortByButton from '../../components/SortByButton';
 import SuggestionList from '../../components/SuggestionList';
 
 // Styles
 import './Home.css';
 
-const Home = ({ suggestionRequests }) => {
+const Home = ({
+  suggestionRequests,
+  plannedLength,
+  inProgressLength,
+  liveLength,
+  menuOpen,
+  handleMenuToggle,
+}) => {
   const [currentCategory, setCurrentCategory] = useState('all');
   const [currentSortCriteria, setCurrentSortCriteria] =
     useState('Most Upvotes');
@@ -53,9 +62,21 @@ const Home = ({ suggestionRequests }) => {
         }
       })
     : null;
+
   return (
     <div className="Home">
-      <header className="Home__header">
+      <nav>
+        <NavBar onClick={handleMenuToggle} menuOpen={menuOpen} />
+      </nav>
+      <SideBar
+        menuOpen={menuOpen}
+        currentCategory={currentCategory}
+        changeCategory={changeCategory}
+        plannedLength={plannedLength}
+        inProgressLength={inProgressLength}
+        liveLength={liveLength}
+      />
+      <header className={`Home__header  ${menuOpen ? 'dark' : null}`}>
         <SortByButton
           currentSortCriteria={currentSortCriteria}
           changeSortCriteria={changeSortCriteria}
@@ -64,8 +85,8 @@ const Home = ({ suggestionRequests }) => {
           <Button bgColor={'purple'} content={'+ Add Feedback'} />
         </div>
       </header>
-      <main>
-        <SuggestionList suggestions={suggestions} />
+      <main className={menuOpen ? 'dark' : null}>
+        <SuggestionList suggestions={suggestions} menuOpen={menuOpen} />
       </main>
     </div>
   );

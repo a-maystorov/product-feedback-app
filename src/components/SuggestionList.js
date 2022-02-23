@@ -4,9 +4,9 @@ import Upvote from './common/Upvote';
 
 import './SuggestionList.css';
 
-const SuggestionList = ({ suggestions }) => {
+const SuggestionList = ({ suggestions, menuOpen }) => {
   return (
-    <div className="suggestion-list container">
+    <div className={`suggestion-list container ${menuOpen ? 'dark' : null}`}>
       {suggestions.length === 0 && <p>No suggestions yet!</p>}
       {suggestions.map((suggestion) => (
         <div className="suggestion-list__item" key={suggestion.id}>

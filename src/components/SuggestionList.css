@@ -2,6 +2,10 @@
   background: var(--color-white-secondary);
 }
 
+.suggestion-list.dark {
+  background: rgba(0, 0, 0, 0);
+}
+
 .suggestion-list__item {
   background: var(--color-white-primary);
   margin-bottom: 1.6rem;
