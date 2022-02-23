@@ -7,17 +7,7 @@ import Live from './Live';
 import Planned from './Planned';
 import './RoadmapList.css';
 
-const RoadmapList = ({ data }) => {
-  const planned = [];
-  const inProgress = [];
-  const live = [];
-
-  data.forEach((suggestion) => {
-    if (suggestion.status === 'planned') planned.push(suggestion);
-    if (suggestion.status === 'in-progress') inProgress.push(suggestion);
-    if (suggestion.status === 'live') live.push(suggestion);
-  });
-
+const RoadmapList = ({ planned, inProgress, live }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 

@@ -7,6 +7,7 @@ import InProgress from './components/InProgress';
 import SortByButton from './components/SortByButton';
 
 import data from './data.json';
+import Roadmap from './components/Roadmap';
 
 const { productRequests } = data;
 
@@ -54,22 +55,43 @@ const App = () => {
       })
     : null;
 
+  const planned = [];
+  const inProgress = [];
+  const live = [];
+
+  productRequests.forEach((suggestion) => {
+    if (suggestion.status === 'planned') planned.push(suggestion);
+    if (suggestion.status === 'in-progress') inProgress.push(suggestion);
+    if (suggestion.status === 'live') live.push(suggestion);
+  });
+
   return (
     <div>
-      <SortByButton
+      <Roadmap
+        plannedLength={planned.length}
+        inProgressLength={inProgress.length}
+        liveLength={live.length}
+      />
+      {/* <SortByButton
         currentCriteria={currentCriteria}
         changeCriteria={changeCriteria}
-      />
+      /> */}
       {/* <CategoryList
         currentCategory={currentCategory}
         changeCategory={changeCategory}
       /> */}
-      <SuggestionList suggestions={suggestions} />
+      {/* <SuggestionList suggestions={suggestions} /> */}
       <BrowserRouter>
         <Routes>
           <Route
             path="/roadmap-list/*"
-            element={<RoadmapList data={productRequests} />}
+            element={
+              <RoadmapList
+                planned={planned}
+                inProgress={inProgress}
+                live={live}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>

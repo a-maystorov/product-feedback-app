@@ -1,0 +1,89 @@
+.roadmap {
+  width: 223px;
+  height: 178px;
+  border-radius: 10px;
+  background: var(--color-white-primary);
+  padding-inline: 2.4rem;
+  padding-block: 1.9rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.roadmap header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.roadmap__header {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.601rem;
+  letter-spacing: -0.25px;
+  color: var(--color-gray-secondary);
+}
+
+.view-btn {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  color: var(--color-blue-primary);
+}
+
+.view-btn:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-blue-primary);
+  text-decoration-thickness: 1.4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.planned-suggestions .dot {
+  background: var(--color-orange);
+}
+
+.in-progress-suggestions .dot {
+  background: var(--color-purple);
+}
+
+.live-suggestions .dot {
+  background: var(--color-blue-secondary);
+}
+
+.roadmap footer p,
+.roadmap footer span {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.312rem;
+  color: var(--color-gray-accent);
+}
+
+.roadmap footer span {
+  font-weight: 700;
+}
+
+.suggestion__status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.roadmap footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.roadmap .suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
