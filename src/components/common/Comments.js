@@ -1,6 +1,13 @@
 import './Comments.css';
 
-const Comments = ({ commentsAmount }) => {
+const Comments = ({ comments }) => {
+  const replies = [];
+
+  comments.forEach((comment) => {
+    if (comment.replies)
+      comment.replies.forEach((reply) => replies.push(reply));
+  });
+
   return (
     <div className="comments">
       <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +17,7 @@ const Comments = ({ commentsAmount }) => {
           fillRule="nonzero"
         />
       </svg>
-      {commentsAmount}
+      {comments.length + replies.length}
     </div>
   );
 };

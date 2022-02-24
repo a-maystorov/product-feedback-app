@@ -8,6 +8,7 @@ import SortByButton from './components/SortByButton';
 import data from './data.json';
 import Roadmap from './components/Roadmap';
 import Home from './pages/Home/Home';
+import SuggestionDetails from './pages/SuggestionDetails/SuggestionDetails';
 
 import './App.css';
 
@@ -33,14 +34,14 @@ const App = () => {
 
   return (
     <div className={`App ${menuOpen ? 'dark' : null}`}>
-      <Home
+      {/* <Home
         suggestionRequests={productRequests}
         plannedLength={planned.length}
         inProgressLength={inProgress.length}
         liveLength={live.length}
         menuOpen={menuOpen}
         handleMenuToggle={handleMenuToggle}
-      />
+      /> */}
       {/* <Roadmap
         plannedLength={planned.length}
         inProgressLength={inProgress.length}
@@ -57,6 +58,23 @@ const App = () => {
       {/* <SuggestionList suggestions={suggestions} /> */}
       <BrowserRouter>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                suggestionRequests={productRequests}
+                plannedLength={planned.length}
+                inProgressLength={inProgress.length}
+                liveLength={live.length}
+                menuOpen={menuOpen}
+                handleMenuToggle={handleMenuToggle}
+              />
+            }
+          />
+          <Route
+            path="/suggestion-details/:id/*"
+            element={<SuggestionDetails suggestions={productRequests} />}
+          />
           <Route
             path="/roadmap-list/*"
             element={

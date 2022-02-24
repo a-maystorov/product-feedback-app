@@ -76,7 +76,7 @@ const Home = ({
         inProgressLength={inProgressLength}
         liveLength={liveLength}
       />
-      <header className={`Home__header  ${menuOpen ? 'dark' : null}`}>
+      <header className={`Home__header ${menuOpen ? 'dark' : null}`}>
         <SortByButton
           currentSortCriteria={currentSortCriteria}
           changeSortCriteria={changeSortCriteria}

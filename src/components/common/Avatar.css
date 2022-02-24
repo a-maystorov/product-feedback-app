@@ -1,0 +1,37 @@
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-details h2 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  letter-spacing: -0.18px;
+  color: var(--color-gray-secondary);
+}
+
+.user-details p {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  color: var(--color-gray-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .user-details h2 {
+    font-size: 1.4rem;
+  }
+
+  .user-details p {
+    font-size: 1.4rem;
+  }
+}
