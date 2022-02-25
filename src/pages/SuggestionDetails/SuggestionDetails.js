@@ -5,9 +5,11 @@ import Upvote from '../../components/common/Upvote';
 import Comments from '../../components/common/Comments';
 
 import SuggestionComments from './SuggestionComments';
+import { useEffect, useState } from 'react';
 
-const SuggestionDetails = ({ suggestions }) => {
+const SuggestionDetails = ({ suggestions, currentUser }) => {
   const { id } = useParams();
+  const replies = [];
 
   const getSuggestion = (id) => {
     return suggestions.filter((suggestion) =>
@@ -16,6 +18,11 @@ const SuggestionDetails = ({ suggestions }) => {
   };
 
   const suggestion = getSuggestion(id);
+
+  suggestion[0].comments.forEach((comment) => {
+    if (comment.replies)
+      comment.replies.forEach((reply) => replies.push(reply));
+  });
 
   return (
     <div className="container">
@@ -30,7 +37,11 @@ const SuggestionDetails = ({ suggestions }) => {
           <Comments comments={suggestion[0].comments} />
         </footer>
       </div>
-      <SuggestionComments comments={suggestion[0].comments} />
+      <SuggestionComments
+        suggestionComments={suggestion[0].comments}
+        suggestionReplies={replies}
+        currentUser={currentUser}
+      />
     </div>
   );
 };

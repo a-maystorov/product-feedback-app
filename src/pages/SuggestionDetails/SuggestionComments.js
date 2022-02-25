@@ -1,14 +1,64 @@
+import { useState, useRef } from 'react';
 import Avatar from '../../components/common/Avatar';
+import Button from '../../components/common/Button';
 
 import './SuggestionComments.css';
 
-const SuggestionComments = ({ comments }) => {
-  const replies = [];
+const SuggestionComments = ({
+  suggestionComments,
+  suggestionReplies,
+  currentUser,
+}) => {
+  const [comments, setComments] = useState(suggestionComments);
+  const [replies, setReplies] = useState(suggestionReplies);
+  const [newReply, setNewReply] = useState('');
+  const [toggleReply, setToggleReply] = useState(false);
+  const [currentCommentId, setCurrentCommentId] = useState(null);
+  const [replyingTo, setReplyingTo] = useState(null);
 
-  comments.forEach((comment) => {
-    if (comment.replies)
-      comment.replies.forEach((reply) => replies.push(reply));
-  });
+  const textAreaRef = useRef(null);
+
+  function scrollToTextArea() {
+    if (!textAreaRef.current) return;
+    textAreaRef.current.scrollIntoView();
+  }
+
+  const getCurrentCommentId = (id) => setCurrentCommentId(id);
+
+  const getReplyingTo = (user) => setReplyingTo(user);
+
+  const handleReplyToggle = () => setToggleReply(!toggleReply);
+
+  const addReply = (comments, replyToAdd) => {
+    comments.forEach((comment) => {
+      if (!comment.replies) comment.replies = [];
+      if (comment.id === currentCommentId) comment.replies.push(replyToAdd);
+    });
+    return comments;
+  };
+
+  const handlePostReply = (e) => {
+    e.preventDefault();
+
+    const replyToAdd = {
+      content: newReply,
+      replyingTo,
+      user: {
+        image: currentUser.image,
+        name: currentUser.name,
+        username: currentUser.username,
+      },
+    };
+
+    const newComments = addReply(comments, replyToAdd);
+
+    setReplies((prevReplies) => [...prevReplies, newComments.replies]);
+    setToggleReply(false);
+    setNewReply('');
+  };
+
+  // console.log(comments);
+  // console.log(replies);
 
   return (
     <div className="suggestion-comments">
@@ -25,7 +75,16 @@ const SuggestionComments = ({ comments }) => {
               name={comment.user.name}
               username={comment.user.username}
             />
-            <button className="reply-btn">Reply</button>
+            <button
+              className="reply-btn"
+              onClick={() => {
+                getCurrentCommentId(comment.id);
+                handleReplyToggle();
+                getReplyingTo(comment.user.username);
+                scrollToTextArea();
+              }}>
+              Reply
+            </button>
           </header>
           <main>
             <p className="suggestion-comment__content">{comment.content}</p>
@@ -40,7 +99,16 @@ const SuggestionComments = ({ comments }) => {
                       name={reply.user.name}
                       username={reply.user.username}
                     />
-                    <button className="reply-btn">Reply</button>
+                    <button
+                      className="reply-btn"
+                      onClick={() => {
+                        getCurrentCommentId(comment.id);
+                        handleReplyToggle();
+                        getReplyingTo(reply.user.username);
+                        scrollToTextArea();
+                      }}>
+                      Reply
+                    </button>
                   </header>
                   <main>
                     <p className="suggestion-comment__content">
@@ -50,6 +118,27 @@ const SuggestionComments = ({ comments }) => {
                   </main>
                 </div>
               ))}
+            {toggleReply && currentCommentId === comment.id && (
+              <form
+                className="add-reply"
+                onSubmit={handlePostReply}
+                ref={textAreaRef}>
+                <label>
+                  <textarea
+                    required
+                    autoFocus
+                    placeholder="Add a reply..."
+                    onChange={(e) => setNewReply(e.target.value)}
+                    value={newReply}></textarea>
+                </label>
+                <div className="post-reply--container">
+                  <Button bgColor={'purple'} content={'Post Reply'} />
+                  <div className="cancel-btn" onClick={handleReplyToggle}>
+                    Cancel
+                  </div>
+                </div>
+              </form>
+            )}
           </footer>
         </div>
       ))}

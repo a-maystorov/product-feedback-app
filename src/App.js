@@ -13,6 +13,7 @@ import SuggestionDetails from './pages/SuggestionDetails/SuggestionDetails';
 import './App.css';
 
 const { productRequests } = data;
+const { currentUser } = data;
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -73,7 +74,12 @@ const App = () => {
           />
           <Route
             path="/suggestion-details/:id/*"
-            element={<SuggestionDetails suggestions={productRequests} />}
+            element={
+              <SuggestionDetails
+                suggestions={productRequests}
+                currentUser={currentUser}
+              />
+            }
           />
           <Route
             path="/roadmap-list/*"
