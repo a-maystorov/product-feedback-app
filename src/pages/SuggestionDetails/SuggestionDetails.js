@@ -9,20 +9,24 @@ import { useEffect, useState } from 'react';
 
 const SuggestionDetails = ({ suggestions, currentUser }) => {
   const { id } = useParams();
-  const replies = [];
-
-  const getSuggestion = (id) => {
-    return suggestions.filter((suggestion) =>
+  const [suggestion, setSuggestion] = useState(() => {
+    const currentSuggestion = suggestions.filter((suggestion) =>
       suggestion.id === parseInt(id) ? suggestion : null
     );
-  };
-
-  const suggestion = getSuggestion(id);
-
-  suggestion[0].comments.forEach((comment) => {
-    if (comment.replies)
-      comment.replies.forEach((reply) => replies.push(reply));
+    return currentSuggestion;
   });
+  const [comments, setComments] = useState(suggestion[0].comments);
+  const [replies, setReplies] = useState([]);
+
+  useEffect(() => {
+    const suggestionReplies = comments.map((comment) => {
+      if (!comment.replies) comment.replies = [];
+      return comment.replies;
+    });
+    setReplies(suggestionReplies.flat(1));
+  }, [comments]);
+
+  console.log(replies); // This about this when adding new comment.
 
   return (
     <div className="container">
@@ -34,12 +38,14 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
         </header>
         <footer className="suggestion-list__footer">
           <Upvote direction={'row'} upvotes={suggestion[0].upvotes} />
-          <Comments comments={suggestion[0].comments} />
+          <Comments comments={comments} />
         </footer>
       </div>
       <SuggestionComments
-        suggestionComments={suggestion[0].comments}
+        suggestionComments={comments}
         suggestionReplies={replies}
+        setComments={setComments}
+        setReplies={setReplies}
         currentUser={currentUser}
       />
     </div>

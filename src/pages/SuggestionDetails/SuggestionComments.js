@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Avatar from '../../components/common/Avatar';
 import Button from '../../components/common/Button';
 
@@ -7,10 +7,10 @@ import './SuggestionComments.css';
 const SuggestionComments = ({
   suggestionComments,
   suggestionReplies,
+  setComments,
+  setReplies,
   currentUser,
 }) => {
-  const [comments, setComments] = useState(suggestionComments);
-  const [replies, setReplies] = useState(suggestionReplies);
   const [newReply, setNewReply] = useState('');
   const [toggleReply, setToggleReply] = useState(false);
   const [currentCommentId, setCurrentCommentId] = useState(null);
@@ -29,12 +29,14 @@ const SuggestionComments = ({
 
   const handleReplyToggle = () => setToggleReply(!toggleReply);
 
-  const addReply = (comments, replyToAdd) => {
-    comments.forEach((comment) => {
-      if (!comment.replies) comment.replies = [];
-      if (comment.id === currentCommentId) comment.replies.push(replyToAdd);
-    });
-    return comments;
+  const addReply = (replyToAdd) => {
+    const currentComment = suggestionComments.filter(
+      (comment) => comment.id === currentCommentId
+    );
+
+    currentComment[0].replies.push(replyToAdd);
+
+    return replyToAdd;
   };
 
   const handlePostReply = (e) => {
@@ -50,20 +52,15 @@ const SuggestionComments = ({
       },
     };
 
-    const newComments = addReply(comments, replyToAdd);
-
-    setReplies((prevReplies) => [...prevReplies, newComments.replies]);
+    setReplies((prevReplies) => [...prevReplies, addReply(replyToAdd)]);
     setToggleReply(false);
     setNewReply('');
   };
 
-  // console.log(comments);
-  // console.log(replies);
-
   return (
     <div className="suggestion-comments">
-      <h1>{comments.length + replies.length} Comments</h1>
-      {comments.map((comment) => (
+      <h1>{suggestionComments.length + suggestionReplies.length} Comments</h1>
+      {suggestionComments.map((comment) => (
         <div
           className={`suggestion-comment ${
             !comment.replies ? 'no-reply' : null
@@ -133,7 +130,12 @@ const SuggestionComments = ({
                 </label>
                 <div className="post-reply--container">
                   <Button bgColor={'purple'} content={'Post Reply'} />
-                  <div className="cancel-btn" onClick={handleReplyToggle}>
+                  <div
+                    className="cancel-btn"
+                    onClick={() => {
+                      handleReplyToggle();
+                      setNewReply('');
+                    }}>
                     Cancel
                   </div>
                 </div>
