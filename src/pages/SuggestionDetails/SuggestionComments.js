@@ -1,20 +1,23 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
+
+// Components
 import Avatar from '../../components/common/Avatar';
 import Button from '../../components/common/Button';
 
+// Styles
 import './SuggestionComments.css';
 
 const SuggestionComments = ({
   suggestionComments,
   suggestionReplies,
-  setComments,
   setReplies,
   currentUser,
 }) => {
-  const [newReply, setNewReply] = useState('');
   const [toggleReply, setToggleReply] = useState(false);
   const [currentCommentId, setCurrentCommentId] = useState(null);
   const [replyingTo, setReplyingTo] = useState(null);
+  const [newReply, setNewReply] = useState('');
+  const [error, setError] = useState(null);
 
   const textAreaRef = useRef(null);
 
@@ -39,9 +42,8 @@ const SuggestionComments = ({
     return replyToAdd;
   };
 
-  const handlePostReply = (e) => {
+  const handleSubmitReply = (e) => {
     e.preventDefault();
-
     const replyToAdd = {
       content: newReply,
       replyingTo,
@@ -52,9 +54,17 @@ const SuggestionComments = ({
       },
     };
 
-    setReplies((prevReplies) => [...prevReplies, addReply(replyToAdd)]);
-    setToggleReply(false);
-    setNewReply('');
+    try {
+      if (newReply === '') throw new Error("Reply can't be empty...");
+      if (newReply.length < 2) throw new Error('Reply is too short...');
+
+      setReplies((prevReplies) => [...prevReplies, addReply(replyToAdd)]);
+      setToggleReply(false);
+      setNewReply('');
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -75,10 +85,10 @@ const SuggestionComments = ({
             <button
               className="reply-btn"
               onClick={() => {
-                getCurrentCommentId(comment.id);
                 handleReplyToggle();
-                getReplyingTo(comment.user.username);
                 scrollToTextArea();
+                getCurrentCommentId(comment.id);
+                getReplyingTo(comment.user.username);
               }}>
               Reply
             </button>
@@ -117,16 +127,16 @@ const SuggestionComments = ({
               ))}
             {toggleReply && currentCommentId === comment.id && (
               <form
-                className="add-reply"
-                onSubmit={handlePostReply}
+                className={`add-reply ${error ? 'error-outline' : null}`}
+                onSubmit={handleSubmitReply}
                 ref={textAreaRef}>
                 <label>
                   <textarea
-                    required
                     autoFocus
-                    placeholder="Add a reply..."
+                    placeholder={`Reply to @${replyingTo}...`}
                     onChange={(e) => setNewReply(e.target.value)}
                     value={newReply}></textarea>
+                  {error && <p className="error">{error}</p>}
                 </label>
                 <div className="post-reply--container">
                   <Button bgColor={'purple'} content={'Post Reply'} />

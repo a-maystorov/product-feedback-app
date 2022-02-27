@@ -26,7 +26,7 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
     setReplies(suggestionReplies.flat(1));
   }, [comments]);
 
-  console.log(replies); // This about this when adding new comment.
+  // console.log(replies); // This about this when adding new comment.
 
   return (
     <div className="container">
