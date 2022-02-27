@@ -1,0 +1,41 @@
+.create-comment {
+  background: var(--color-white-primary);
+  border-radius: 10px;
+  padding: 2.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 8.8rem;
+}
+
+.create-comment textarea {
+  height: 80px;
+  padding: 1.6rem;
+}
+
+.create-comment h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.601rem;
+  letter-spacing: -0.25px;
+  color: var(--color-gray-secondary);
+  padding-bottom: 2.4rem;
+}
+
+.post-comment--container {
+  width: 119px;
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 5.3rem;
+}
+
+.form-footer p {
+  width: 106px;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  color: var(--color-gray-accent);
+}

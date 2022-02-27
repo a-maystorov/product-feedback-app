@@ -1,11 +1,19 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Components
+import SuggestionComments from './SuggestionComments';
+import CreateComment from './CreateComment';
+
+// Common components
+import Button from '../../components/common/Button';
+import BackButton from '../../components/common/BackButton';
 import Category from '../../components/common/Category';
 import Upvote from '../../components/common/Upvote';
 import Comments from '../../components/common/Comments';
 
-import SuggestionComments from './SuggestionComments';
-import { useEffect, useState } from 'react';
+// Styles
+import './SuggestionDetails.css';
 
 const SuggestionDetails = ({ suggestions, currentUser }) => {
   const { id } = useParams();
@@ -26,10 +34,14 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
     setReplies(suggestionReplies.flat(1));
   }, [comments]);
 
-  // console.log(replies); // This about this when adding new comment.
-
   return (
     <div className="container">
+      <nav className="suggestion-details__nav">
+        <BackButton theme={'light'} />
+        <div className="nav-btn--container">
+          <Button bgColor={'blue'} content={'Edit Feedback'} />
+        </div>
+      </nav>
       <div className="suggestion-list__item">
         <header className="suggestion-list__header">
           <h2>{suggestion[0].title}</h2>
@@ -44,9 +56,13 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
       <SuggestionComments
         suggestionComments={comments}
         suggestionReplies={replies}
-        setComments={setComments}
         setReplies={setReplies}
         currentUser={currentUser}
+      />
+      <CreateComment
+        currentUser={currentUser}
+        currentSuggestion={suggestion}
+        setComments={setComments}
       />
     </div>
   );

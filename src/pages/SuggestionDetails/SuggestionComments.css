@@ -108,7 +108,7 @@
   font-size: 1.3rem;
   color: var(--color-gray-secondary);
   background: var(--color-white-secondary);
-  border: 1px solid var(--color-gray-accent);
+  border: none;
   border-radius: 10px;
   resize: none;
   outline: none;
@@ -158,5 +158,6 @@
 }
 
 .error-outline textarea {
-  border-color: #d73737;
+  border: 1px solid #d73737;
+  outline: none;
 }

@@ -30,7 +30,10 @@ const SuggestionComments = ({
 
   const getReplyingTo = (user) => setReplyingTo(user);
 
-  const handleReplyToggle = () => setToggleReply(!toggleReply);
+  const handleReplyToggle = () => {
+    setToggleReply(!toggleReply);
+    setError(null);
+  };
 
   const addReply = (replyToAdd) => {
     const currentComment = suggestionComments.filter(
