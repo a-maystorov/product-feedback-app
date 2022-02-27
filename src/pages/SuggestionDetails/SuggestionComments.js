@@ -73,7 +73,7 @@ const SuggestionComments = ({
       {suggestionComments.map((comment) => (
         <div
           className={`suggestion-comment ${
-            !comment.replies ? 'no-reply' : null
+            !comment.replies || comment.replies.length === 0 ? 'no-reply' : null
           }`}
           key={comment.id}>
           <header className="suggestion-comment__header">
