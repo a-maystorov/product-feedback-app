@@ -28,8 +28,24 @@ const Home = ({
 
   const sortedSuggestions = suggestionRequests
     ? suggestionRequests.sort((a, b) => {
-        const commentsA = a.comments ? a.comments.length : 0;
-        const commentsB = b.comments ? b.comments.length : 0;
+        const commentsA = a.comments ? a.comments : [];
+        const repliesA =
+          commentsA.length !== 0
+            ? commentsA.filter((comment) =>
+                comment.replies ? comment.replies : []
+              )
+            : [];
+
+        const commentsB = b.comments ? b.comments : [];
+        const repliesB =
+          commentsB.length !== 0
+            ? commentsB.filter((comment) =>
+                comment.replies ? comment.replies : []
+              )
+            : [];
+
+        const A = commentsA.length + repliesA.length;
+        const B = commentsB.length + repliesB.length;
 
         switch (currentSortCriteria) {
           case 'Most Upvotes':
@@ -37,9 +53,9 @@ const Home = ({
           case 'Least Upvotes':
             return a.upvotes - b.upvotes;
           case 'Most Comments':
-            return commentsB - commentsA;
+            return B - A;
           case 'Least Comments':
-            return commentsA - commentsB;
+            return A - B;
           default:
             return b.upvotes - a.upvotes;
         }

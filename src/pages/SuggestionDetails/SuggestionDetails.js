@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Components
 import SuggestionComments from './SuggestionComments';
@@ -37,7 +38,9 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
   return (
     <div className="container">
       <nav className="suggestion-details__nav">
-        <BackButton theme={'light'} />
+        <Link to="/">
+          <BackButton theme={'light'} />
+        </Link>
         <div className="nav-btn--container">
           <Button bgColor={'blue'} content={'Edit Feedback'} />
         </div>
