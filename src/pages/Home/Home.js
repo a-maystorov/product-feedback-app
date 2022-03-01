@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import Button from '../../components/common/Button';
@@ -28,24 +29,29 @@ const Home = ({
 
   const sortedSuggestions = suggestionRequests
     ? suggestionRequests.sort((a, b) => {
-        const commentsA = a.comments ? a.comments : [];
-        const repliesA =
-          commentsA.length !== 0
-            ? commentsA.filter((comment) =>
-                comment.replies ? comment.replies : []
-              )
-            : [];
+        const commentsA = a.comments ? a.comments.length : 0;
+        const commentsB = b.comments ? b.comments.length : 0;
 
-        const commentsB = b.comments ? b.comments : [];
-        const repliesB =
-          commentsB.length !== 0
-            ? commentsB.filter((comment) =>
-                comment.replies ? comment.replies : []
-              )
-            : [];
+        const repliesA = a.comments ? a.comments : [];
+        const filteredRepliesA = repliesA.filter((comment) => {
+          return comment.replies ? comment.replies : null;
+        });
 
-        const A = commentsA.length + repliesA.length;
-        const B = commentsB.length + repliesB.length;
+        const repliesB = b.comments ? b.comments : [];
+        const filteredRepliesB = repliesB.filter((comment) => {
+          return comment.replies ? comment.replies : null;
+        });
+
+        const repliesLengthA = filteredRepliesA[0]
+          ? filteredRepliesA[0].replies.length
+          : 0;
+
+        const repliesLengthB = filteredRepliesB[0]
+          ? filteredRepliesB[0].replies.length
+          : 0;
+
+        const A = commentsA + repliesLengthA;
+        const B = commentsB + repliesLengthB;
 
         switch (currentSortCriteria) {
           case 'Most Upvotes':
@@ -97,9 +103,11 @@ const Home = ({
           currentSortCriteria={currentSortCriteria}
           changeSortCriteria={changeSortCriteria}
         />
-        <div className="Home__header__add-feedback--container">
+        <Link
+          to={'/create-suggestion'}
+          className="Home__header__add-feedback--container">
           <Button bgColor={'purple'} content={'+ Add Feedback'} />
-        </div>
+        </Link>
       </header>
       <main className={menuOpen ? 'dark' : null}>
         <SuggestionList suggestions={suggestions} menuOpen={menuOpen} />

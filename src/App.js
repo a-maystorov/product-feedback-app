@@ -11,6 +11,7 @@ import Home from './pages/Home/Home';
 import SuggestionDetails from './pages/SuggestionDetails/SuggestionDetails';
 
 import './App.css';
+import CreateSuggestion from './pages/CreateSuggestion/CreateSuggestion';
 
 const { productRequests } = data;
 const { currentUser } = data;
@@ -81,6 +82,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/create-suggestion" element={<CreateSuggestion />} />
           <Route
             path="/roadmap-list/*"
             element={
