@@ -72,91 +72,101 @@ const SuggestionComments = ({
 
   return (
     <div className="suggestion-comments">
-      <h1>{suggestionComments.length + suggestionReplies.length} Comments</h1>
-      {suggestionComments.map((comment) => (
-        <div
-          className={`suggestion-comment ${
-            !comment.replies || comment.replies.length === 0 ? 'no-reply' : null
-          }`}
-          key={comment.id}>
-          <header className="suggestion-comment__header">
-            <Avatar
-              src={comment.user.image}
-              name={comment.user.name}
-              username={comment.user.username}
-            />
-            <button
-              className="reply-btn"
-              onClick={() => {
-                handleReplyToggle();
-                scrollToTextArea();
-                getCurrentCommentId(comment.id);
-                getReplyingTo(comment.user.username);
-              }}>
-              Reply
-            </button>
-          </header>
-          <main>
-            <p className="suggestion-comment__content">{comment.content}</p>
-          </main>
-          <footer className="comment-replies">
-            {comment.replies &&
-              comment.replies.map((reply, index) => (
-                <div className="comment-reply" key={index}>
-                  <header className="comment-reply__header">
-                    <Avatar
-                      src={reply.user.image}
-                      name={reply.user.name}
-                      username={reply.user.username}
-                    />
-                    <button
-                      className="reply-btn"
-                      onClick={() => {
-                        getCurrentCommentId(comment.id);
-                        handleReplyToggle();
-                        getReplyingTo(reply.user.username);
-                        scrollToTextArea();
-                      }}>
-                      Reply
-                    </button>
-                  </header>
-                  <main>
-                    <p className="suggestion-comment__content">
-                      <span className="replying-to">@{reply.replyingTo} </span>
-                      {reply.content}
-                    </p>
-                  </main>
-                </div>
-              ))}
-            {toggleReply && currentCommentId === comment.id && (
-              <form
-                className={`add-reply ${error ? 'error-outline' : null}`}
-                onSubmit={handleSubmitReply}
-                ref={textAreaRef}>
-                <label>
-                  <textarea
-                    autoFocus
-                    placeholder={`Reply to @${replyingTo}...`}
-                    onChange={(e) => setNewReply(e.target.value)}
-                    value={newReply}></textarea>
-                  {error && <p className="error">{error}</p>}
-                </label>
-                <div className="post-reply--container">
-                  <Button bgColor={'purple'} content={'Post Reply'} />
-                  <div
-                    className="cancel-btn"
-                    onClick={() => {
-                      handleReplyToggle();
-                      setNewReply('');
-                    }}>
-                    Cancel
+      <h1>
+        {suggestionComments
+          ? suggestionComments.length + suggestionReplies.length
+          : 0}{' '}
+        Comments
+      </h1>
+      {suggestionComments &&
+        suggestionComments.map((comment) => (
+          <div
+            className={`suggestion-comment ${
+              !comment.replies || comment.replies.length === 0
+                ? 'no-reply'
+                : null
+            }`}
+            key={comment.id}>
+            <header className="suggestion-comment__header">
+              <Avatar
+                src={comment.user.image}
+                name={comment.user.name}
+                username={comment.user.username}
+              />
+              <button
+                className="reply-btn"
+                onClick={() => {
+                  handleReplyToggle();
+                  scrollToTextArea();
+                  getCurrentCommentId(comment.id);
+                  getReplyingTo(comment.user.username);
+                }}>
+                Reply
+              </button>
+            </header>
+            <main>
+              <p className="suggestion-comment__content">{comment.content}</p>
+            </main>
+            <footer className="comment-replies">
+              {comment.replies &&
+                comment.replies.map((reply, index) => (
+                  <div className="comment-reply" key={index}>
+                    <header className="comment-reply__header">
+                      <Avatar
+                        src={reply.user.image}
+                        name={reply.user.name}
+                        username={reply.user.username}
+                      />
+                      <button
+                        className="reply-btn"
+                        onClick={() => {
+                          getCurrentCommentId(comment.id);
+                          handleReplyToggle();
+                          getReplyingTo(reply.user.username);
+                          scrollToTextArea();
+                        }}>
+                        Reply
+                      </button>
+                    </header>
+                    <main>
+                      <p className="suggestion-comment__content">
+                        <span className="replying-to">
+                          @{reply.replyingTo}{' '}
+                        </span>
+                        {reply.content}
+                      </p>
+                    </main>
                   </div>
-                </div>
-              </form>
-            )}
-          </footer>
-        </div>
-      ))}
+                ))}
+              {toggleReply && currentCommentId === comment.id && (
+                <form
+                  className={`add-reply ${error ? 'error-outline' : null}`}
+                  onSubmit={handleSubmitReply}
+                  ref={textAreaRef}>
+                  <label>
+                    <textarea
+                      autoFocus
+                      placeholder={`Reply to @${replyingTo}...`}
+                      onChange={(e) => setNewReply(e.target.value)}
+                      value={newReply}></textarea>
+                    {error && <p className="error">{error}</p>}
+                  </label>
+                  <div className="post-reply--container">
+                    <Button bgColor={'purple'} content={'Post Reply'} />
+                    <div
+                      className="cancel-btn"
+                      onClick={() => {
+                        handleReplyToggle();
+                        setNewReply('');
+                      }}>
+                      Cancel
+                    </div>
+                  </div>
+                </form>
+              )}
+            </footer>
+          </div>
+        ))}
     </div>
   );
 };

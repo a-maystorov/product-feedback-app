@@ -19,21 +19,30 @@ import './SuggestionDetails.css';
 const SuggestionDetails = ({ suggestions, currentUser }) => {
   const { id } = useParams();
   const [suggestion, setSuggestion] = useState(() => {
-    const currentSuggestion = suggestions.filter((suggestion) =>
-      suggestion.id === parseInt(id) ? suggestion : null
-    );
+    const currentSuggestion =
+      suggestions &&
+      suggestions.filter((suggestion) =>
+        suggestion.id === parseInt(id) ? suggestion : null
+      );
     return currentSuggestion;
   });
-  const [comments, setComments] = useState(suggestion[0].comments);
+  const [comments, setComments] = useState([]);
   const [replies, setReplies] = useState([]);
 
   useEffect(() => {
-    const suggestionReplies = comments.map((comment) => {
-      if (!comment.replies) comment.replies = [];
-      return comment.replies;
-    });
-    setReplies(suggestionReplies.flat(1));
-  }, [comments]);
+    const suggestionReplies =
+      comments &&
+      comments.map((comment) => {
+        if (!comment.replies) comment.replies = [];
+        return comment.replies;
+      });
+
+    suggestionReplies && setReplies(suggestionReplies.flat(1));
+    suggestion[0].comments && setComments(suggestion[0].comments);
+  }, [comments, suggestion]);
+
+  console.table('Suggestions Array: ', suggestions);
+  console.table('Current Suggestion: ', suggestion);
 
   return (
     <div className="container">

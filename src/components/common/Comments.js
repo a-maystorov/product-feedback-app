@@ -3,10 +3,11 @@ import './Comments.css';
 const Comments = ({ comments }) => {
   const replies = [];
 
-  comments.forEach((comment) => {
-    if (comment.replies)
-      comment.replies.forEach((reply) => replies.push(reply));
-  });
+  comments &&
+    comments.forEach((comment) => {
+      if (comment.replies)
+        comment.replies.forEach((reply) => replies.push(reply));
+    });
 
   return (
     <div className="comments">
@@ -17,7 +18,7 @@ const Comments = ({ comments }) => {
           fillRule="nonzero"
         />
       </svg>
-      {comments.length + replies.length}
+      {comments ? comments.length + replies.length : 0}
     </div>
   );
 };

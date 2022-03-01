@@ -23,3 +23,8 @@
   margin: 0 auto;
   border-radius: 10px;
 }
+
+.error {
+  padding-top: 0.4rem;
+  color: #d73737;
+}

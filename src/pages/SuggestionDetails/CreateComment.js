@@ -8,6 +8,7 @@ const CreateComment = ({ currentUser, currentSuggestion, setComments }) => {
   const [charCount, setCharCount] = useState(250);
 
   const addComment = (commentToAdd) => {
+    if (!currentSuggestion[0].comments) currentSuggestion[0].comments = [];
     currentSuggestion[0].comments.push(commentToAdd);
 
     return commentToAdd;
@@ -30,10 +31,10 @@ const CreateComment = ({ currentUser, currentSuggestion, setComments }) => {
       if (newComment === '') throw new Error("Comment can't be empty...");
       if (newComment.length < 2) throw new Error('Comment is too short...');
 
-      setComments((prevComments) => [
-        ...prevComments,
-        addComment(commentToAdd),
-      ]);
+      setComments(
+        (prevComments) =>
+          prevComments && [...prevComments, addComment(commentToAdd)]
+      );
       setNewComment('');
       setCharCount(250);
       setError(null);

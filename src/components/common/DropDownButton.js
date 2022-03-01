@@ -2,7 +2,7 @@ import './DropDownButton.css';
 
 const DropDownButton = ({ onClick, currentSortCriteria, isOpen }) => {
   return (
-    <button
+    <div
       className={`dd-btn ${isOpen ? 'dd-btn--open' : null}`}
       onClick={onClick}>
       <span className="dd-btn__sort-by">Sort by :</span>
@@ -21,7 +21,7 @@ const DropDownButton = ({ onClick, currentSortCriteria, isOpen }) => {
           fillRule="evenodd"
         />
       </svg>
-    </button>
+    </div>
   );
 };
 

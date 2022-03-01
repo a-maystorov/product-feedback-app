@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
 import CategoryList from './components/CategoryList';
 import RoadmapList from './components/RoadmapList';
@@ -18,6 +18,7 @@ const { currentUser } = data;
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState(productRequests);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -36,35 +37,13 @@ const App = () => {
 
   return (
     <div className={`App ${menuOpen ? 'dark' : null}`}>
-      {/* <Home
-        suggestionRequests={productRequests}
-        plannedLength={planned.length}
-        inProgressLength={inProgress.length}
-        liveLength={live.length}
-        menuOpen={menuOpen}
-        handleMenuToggle={handleMenuToggle}
-      /> */}
-      {/* <Roadmap
-        plannedLength={planned.length}
-        inProgressLength={inProgress.length}
-        liveLength={live.length}
-      /> */}
-      {/* <SortByButton
-        currentCriteria={currentCriteria}
-        changeCriteria={changeCriteria}
-      /> */}
-      {/* <CategoryList
-        currentCategory={currentCategory}
-        changeCategory={changeCategory}
-      /> */}
-      {/* <SuggestionList suggestions={suggestions} /> */}
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
             element={
               <Home
-                suggestionRequests={productRequests}
+                suggestionRequests={suggestions}
                 plannedLength={planned.length}
                 inProgressLength={inProgress.length}
                 liveLength={live.length}
@@ -77,12 +56,20 @@ const App = () => {
             path="/suggestion-details/:id/*"
             element={
               <SuggestionDetails
-                suggestions={productRequests}
+                suggestions={suggestions}
                 currentUser={currentUser}
               />
             }
           />
-          <Route path="/create-suggestion" element={<CreateSuggestion />} />
+          <Route
+            path="/create-suggestion"
+            element={
+              <CreateSuggestion
+                suggestions={suggestions}
+                setSuggestions={setSuggestions}
+              />
+            }
+          />
           <Route
             path="/roadmap-list/*"
             element={
