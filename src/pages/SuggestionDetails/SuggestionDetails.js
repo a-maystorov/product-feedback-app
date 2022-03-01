@@ -22,7 +22,7 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
     const currentSuggestion =
       suggestions &&
       suggestions.filter((suggestion) =>
-        suggestion.id === parseInt(id) ? suggestion : null
+        suggestion.id === parseFloat(id) ? suggestion : null
       );
     return currentSuggestion;
   });
@@ -40,9 +40,6 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
     suggestionReplies && setReplies(suggestionReplies.flat(1));
     suggestion[0].comments && setComments(suggestion[0].comments);
   }, [comments, suggestion]);
-
-  console.table('Suggestions Array: ', suggestions);
-  console.table('Current Suggestion: ', suggestion);
 
   return (
     <div className="container">
