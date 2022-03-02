@@ -2,9 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import DropDownButton from './common/DropDownButton';
 import DropDownCard from './common/DropDownCard';
 
-const categoryList = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
-
-const DropDownCategory = ({ currentCategory, changeCategory }) => {
+const DropDownCategory = ({
+  currentCategory,
+  changeCategory,
+  categoryList,
+}) => {
   const [open, setOpen] = useState(false);
 
   const drop = useRef(null);

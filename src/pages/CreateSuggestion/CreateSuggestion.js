@@ -1,15 +1,25 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+// Components
 import DropDownCategory from '../../components/DropDownCategory';
+
+// Common components
 import Button from '../../components/common/Button';
-import './CreateSuggestion.css';
 import BackButton from '../../components/common/BackButton';
 
+// Styles
+import './CreateSuggestion.css';
+
+const categoryList = ['feature', 'UI', 'UX', 'enhancement', 'bug'];
+
 const CreateSuggestion = ({ suggestions, setSuggestions }) => {
+  const navigate = useNavigate();
   const [currentCategory, setCurrentCategory] = useState('Feature');
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const changeCategory = (newCategory) => setCurrentCategory(newCategory);
 
@@ -31,10 +41,10 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
     };
 
     try {
-      if (details === '') throw new Error("Description can't be empty...");
-      if (details.length < 2) throw new Error('Description is too short...');
-      if (title === '') throw new Error("Title can't be empty...");
-      if (title.length < 2) throw new Error('Title is too short...');
+      if (details === '') throw new Error("The input can't be empty...");
+      if (details.length < 2) throw new Error('The input is too short...');
+      if (title === '') throw new Error("The input can't be empty...");
+      if (title.length < 2) throw new Error('The input is too short...');
 
       setSuggestions((prevSuggestions) => [
         ...prevSuggestions,
@@ -43,6 +53,8 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
       setDetails('');
       setTitle('');
       setError(null);
+      setSuccess('The Feedback has been added!');
+      setTimeout(() => navigate('/'), 2000);
     } catch (err) {
       setError(err.message);
     }
@@ -83,6 +95,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
               <DropDownCategory
                 currentCategory={currentCategory}
                 changeCategory={changeCategory}
+                categoryList={categoryList}
               />
             </div>
             <div className="create-suggestion__detail">
@@ -100,6 +113,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
             </div>
           </main>
           <footer>
+            {success && <p className="success">{success}</p>}
             <Button bgColor={'purple'} content={'Add Feedback'} />
             <Link
               to="/"

@@ -68,6 +68,8 @@
 .create-suggestion footer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1.6rem;
 }
 
@@ -144,6 +146,7 @@
 }
 
 .create-suggestion--cancel-btn {
+  cursor: pointer;
   background: var(--color-gray-secondary);
   color: var(--color-white-primary);
   font-weight: 700;
@@ -155,4 +158,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.create-suggestion--delete-btn {
+  cursor: pointer;
+  background: #d73737;
+  color: var(--color-white-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  width: 100%;
+  border-radius: 10px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success {
+  color: #4bca81;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+}
+
+.edit-icon {
+  margin-left: 2.4rem;
+  transform: translateY(50%);
 }

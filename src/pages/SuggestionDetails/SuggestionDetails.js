@@ -17,6 +17,8 @@ import Comments from '../../components/common/Comments';
 import './SuggestionDetails.css';
 
 const SuggestionDetails = ({ suggestions, currentUser }) => {
+  const [comments, setComments] = useState([]);
+  const [replies, setReplies] = useState([]);
   const { id } = useParams();
   const [suggestion, setSuggestion] = useState(() => {
     const currentSuggestion =
@@ -26,8 +28,6 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
       );
     return currentSuggestion;
   });
-  const [comments, setComments] = useState([]);
-  const [replies, setReplies] = useState([]);
 
   useEffect(() => {
     const suggestionReplies =
@@ -47,9 +47,11 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
         <Link to="/">
           <BackButton theme={'light'} />
         </Link>
-        <div className="nav-btn--container">
+        <Link
+          to={`/edit-suggestion/${suggestion[0].id}`}
+          className="nav-btn--container">
           <Button bgColor={'blue'} content={'Edit Feedback'} />
-        </div>
+        </Link>
       </nav>
       <div className="suggestion-list__item">
         <header className="suggestion-list__header">

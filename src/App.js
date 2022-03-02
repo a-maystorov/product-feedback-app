@@ -1,17 +1,20 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Link, Route, Routes, Navigate } from 'react-router-dom';
-import CategoryList from './components/CategoryList';
-import RoadmapList from './components/RoadmapList';
-import InProgress from './components/InProgress';
-import SortByButton from './components/SortByButton';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import data from './data.json';
-import Roadmap from './components/Roadmap';
+// Pages
 import Home from './pages/Home/Home';
 import SuggestionDetails from './pages/SuggestionDetails/SuggestionDetails';
-
-import './App.css';
 import CreateSuggestion from './pages/CreateSuggestion/CreateSuggestion';
+import EditSuggestion from './pages/EditSuggestion/EditSuggestion';
+
+// Components
+import RoadmapList from './components/RoadmapList';
+
+// Styles
+import './App.css';
+
+// Initial data
+import data from './data.json';
 
 const { productRequests } = data;
 const { currentUser } = data;
@@ -29,7 +32,7 @@ const App = () => {
   const inProgress = [];
   const live = [];
 
-  productRequests.forEach((suggestion) => {
+  suggestions.forEach((suggestion) => {
     if (suggestion.status === 'planned') planned.push(suggestion);
     if (suggestion.status === 'in-progress') inProgress.push(suggestion);
     if (suggestion.status === 'live') live.push(suggestion);
@@ -65,6 +68,15 @@ const App = () => {
             path="/create-suggestion"
             element={
               <CreateSuggestion
+                suggestions={suggestions}
+                setSuggestions={setSuggestions}
+              />
+            }
+          />
+          <Route
+            path="/edit-suggestion/:id/*"
+            element={
+              <EditSuggestion
                 suggestions={suggestions}
                 setSuggestions={setSuggestions}
               />
