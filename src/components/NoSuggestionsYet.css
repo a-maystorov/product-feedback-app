@@ -1,0 +1,36 @@
+.no-suggestions {
+  background: var(--color-white-primary);
+  border-radius: 10px;
+  padding-inline: 2.4rem;
+  padding-block: 7.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-suggestion-icon {
+  padding-bottom: 3.9rem;
+}
+
+.no-suggestions h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.601rem;
+  letter-spacing: -0.25px;
+  color: var(--color-gray-secondary);
+  padding-bottom: 1.4rem;
+}
+
+.no-suggestions p {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.879rem;
+  text-align: center;
+  color: var(--color-gray-accent);
+  padding-bottom: 2.4rem;
+}
+
+.no-suggestions--btn-container {
+  width: 134px;
+}

@@ -4,12 +4,14 @@ import Category from './common/Category';
 import Comments from './common/Comments';
 import Upvote from './common/Upvote';
 
+import NoSuggestionsYet from './NoSuggestionsYet';
+
 import './SuggestionList.css';
 
 const SuggestionList = ({ suggestions, menuOpen, handleMenuToggle }) => {
   return (
     <div className={`suggestion-list container ${menuOpen ? 'dark' : null}`}>
-      {suggestions.length === 0 && <p>No suggestions yet!</p>}
+      {suggestions.length === 0 && <NoSuggestionsYet />}
       {suggestions.map((suggestion) => (
         <div className="suggestion-list__item" key={suggestion.id}>
           <header
