@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Components
 import Button from '../../components/common/Button';
@@ -19,6 +19,7 @@ const Home = ({
   menuOpen,
   handleMenuToggle,
 }) => {
+  const { pathname } = useLocation();
   const [currentCategory, setCurrentCategory] = useState('all');
   const [currentSortCriteria, setCurrentSortCriteria] =
     useState('Most Upvotes');
@@ -97,8 +98,12 @@ const Home = ({
         plannedLength={plannedLength}
         inProgressLength={inProgressLength}
         liveLength={liveLength}
+        handleMenuToggle={handleMenuToggle}
       />
-      <header className={`Home__header ${menuOpen ? 'dark' : null}`}>
+      <header
+        className={`Home__header ${
+          menuOpen && pathname === '/' ? 'dark' : null
+        }`}>
         <SortByButton
           currentSortCriteria={currentSortCriteria}
           changeSortCriteria={changeSortCriteria}
@@ -109,8 +114,12 @@ const Home = ({
           <Button bgColor={'purple'} content={'+ Add Feedback'} />
         </Link>
       </header>
-      <main className={menuOpen ? 'dark' : null}>
-        <SuggestionList suggestions={suggestions} menuOpen={menuOpen} />
+      <main className={menuOpen && pathname === '/' ? 'dark' : null}>
+        <SuggestionList
+          suggestions={suggestions}
+          menuOpen={menuOpen}
+          handleMenuToggle={handleMenuToggle}
+        />
       </main>
     </div>
   );

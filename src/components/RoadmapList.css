@@ -73,6 +73,18 @@
   padding-top: 0.3rem;
 }
 
+.roadmap-list__header--back-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadmap-list__header--back-btn .back-btn {
+  padding: 0;
+  margin: 0;
+}
+
 .roadmap-list__header--add-btn {
-  max-width: 134px;
+  width: 134px;
 }

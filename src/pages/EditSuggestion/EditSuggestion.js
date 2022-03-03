@@ -8,7 +8,7 @@ import DropDownCategory from '../../components/DropDownCategory';
 import Button from '../../components/common/Button';
 import BackButton from '../../components/common/BackButton';
 
-const statusList = ['planned', 'in-progress', 'line'];
+const statusList = ['planned', 'in-progress', 'live'];
 const categoryList = ['feature', 'UI', 'UX', 'enhancement', 'bug'];
 
 const EditSuggestion = ({ suggestions, setSuggestions }) => {

@@ -9,6 +9,7 @@ const SideBar = ({
   plannedLength,
   inProgressLength,
   liveLength,
+  handleMenuToggle,
 }) => {
   return (
     <div className={`sidebar ${!menuOpen ? 'd-none' : null}`}>
@@ -20,6 +21,7 @@ const SideBar = ({
         plannedLength={plannedLength}
         inProgressLength={inProgressLength}
         liveLength={liveLength}
+        handleMenuToggle={handleMenuToggle}
       />
     </div>
   );

@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom';
 import './Roadmap.css';
 
-const Roadmap = ({ plannedLength, inProgressLength, liveLength }) => {
+const Roadmap = ({
+  plannedLength,
+  inProgressLength,
+  liveLength,
+  handleMenuToggle,
+}) => {
   return (
     <div className="roadmap">
       <header>
         <h1 className="roadmap__header">Roadmap</h1>
-        <span className="view-btn">View</span>
+        <Link to={'/roadmap-list/planned'} className="view-btn">
+          <div onClick={handleMenuToggle}>View</div>
+        </Link>
       </header>
       <footer>
         <div className="suggestion planned-suggestions">

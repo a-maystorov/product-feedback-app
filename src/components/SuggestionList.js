@@ -6,13 +6,15 @@ import Upvote from './common/Upvote';
 
 import './SuggestionList.css';
 
-const SuggestionList = ({ suggestions, menuOpen }) => {
+const SuggestionList = ({ suggestions, menuOpen, handleMenuToggle }) => {
   return (
     <div className={`suggestion-list container ${menuOpen ? 'dark' : null}`}>
       {suggestions.length === 0 && <p>No suggestions yet!</p>}
       {suggestions.map((suggestion) => (
         <div className="suggestion-list__item" key={suggestion.id}>
-          <header className="suggestion-list__header">
+          <header
+            className="suggestion-list__header"
+            onClick={handleMenuToggle}>
             <Link
               className="suggestion-details__link"
               to={`/suggestion-details/${suggestion.id}`}>

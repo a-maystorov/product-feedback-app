@@ -1,4 +1,10 @@
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useNavigate,
+  useLocation,
+  Link,
+} from 'react-router-dom';
 import BackButton from './common/BackButton';
 import Button from './common/Button';
 
@@ -11,19 +17,21 @@ const RoadmapList = ({ planned, inProgress, live }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   return (
     <div className="roadmap-list">
       <nav>
         <header className="roadmap-list__header">
           <div className="roadmap-list__header--back-btn">
-            <BackButton theme={'dark'} />
+            <Link to="/">
+              <BackButton theme={'dark'} />
+            </Link>
             <h1>Roadmap</h1>
           </div>
-          <div className="roadmap-list__header--add-btn">
+          <Link
+            to={'/create-suggestion'}
+            className="roadmap-list__header--add-btn">
             <Button bgColor={'purple'} content={'+ Add Feedback'} />
-          </div>
+          </Link>
         </header>
         <footer className="roadmap-list__footer ">
           <button
