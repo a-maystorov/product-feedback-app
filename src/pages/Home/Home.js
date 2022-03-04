@@ -15,7 +15,6 @@ import './Home.css';
 
 const Home = ({
   suggestionRequests,
-  suggestionStatusLength,
   plannedLength,
   inProgressLength,
   liveLength,
@@ -138,7 +137,7 @@ const Home = ({
               </svg>
             </div>
             <div className="number-of-suggestions">
-              {suggestionStatusLength}
+              {suggestions.length}
               <h2>Suggestions</h2>
             </div>
           </div>

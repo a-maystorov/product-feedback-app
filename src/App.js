@@ -44,7 +44,6 @@ const App = () => {
   const live = [];
 
   suggestions.forEach((suggestion) => {
-    if (suggestion.status === 'suggestion') suggestionStatus.push(suggestion);
     if (suggestion.status === 'planned') planned.push(suggestion);
     if (suggestion.status === 'in-progress') inProgress.push(suggestion);
     if (suggestion.status === 'live') live.push(suggestion);
