@@ -6,18 +6,34 @@
   margin-bottom: 8.8rem;
 }
 
-.create-comment textarea {
-  height: 80px;
-  padding: 1.6rem;
-}
-
 .create-comment h1 {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.601rem;
   letter-spacing: -0.25px;
   color: var(--color-gray-secondary);
-  padding-bottom: 2.4rem;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-top: 2.4rem;
+}
+
+.add-comment textarea {
+  height: 80px;
+  width: 100%;
+  padding: 1.6rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--color-gray-secondary);
+  background: var(--color-white-secondary);
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .post-comment--container {
@@ -38,4 +54,19 @@
   font-size: 1.3rem;
   line-height: 1.879rem;
   color: var(--color-gray-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .create-comment {
+    padding: 3.4rem;
+  }
+
+  .add-comment {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .form-footer {
+    justify-content: space-between;
+  }
 }

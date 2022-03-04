@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 13rem;
-  padding: 2.4rem;
+  padding-block: 2.4rem;
 }
 
 .suggestion-details__nav .back-btn {
@@ -13,4 +13,14 @@
 
 .nav-btn--container {
   max-width: 119px;
+}
+
+@media screen and (min-width: 768px) {
+  .suggestion-details__nav {
+    justify-content: space-between;
+  }
+
+  .nav-btn--container {
+    max-width: 142px;
+  }
 }

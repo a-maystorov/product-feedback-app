@@ -16,7 +16,7 @@ import Comments from '../../components/common/Comments';
 // Styles
 import './SuggestionDetails.css';
 
-const SuggestionDetails = ({ suggestions, currentUser }) => {
+const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
   const [comments, setComments] = useState([]);
   const [replies, setReplies] = useState([]);
   const { id } = useParams();
@@ -54,12 +54,26 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
         </Link>
       </nav>
       <div className="suggestion-list__item">
-        <header className="suggestion-list__header">
-          <h2>{suggestion[0].title}</h2>
-          <p>{suggestion[0].description}</p>
-          <Category category={suggestion[0].category} />
-        </header>
-        <footer className="suggestion-list__footer">
+        <div
+          className={
+            windowWidth >= 768 ? 'suggestion-list__tablet-plus' : null
+          }>
+          {windowWidth >= 768 && (
+            <div className="suggestion-list__tablet-plus__upvotes">
+              <Upvote direction={'col'} upvotes={suggestion[0].upvotes} />
+            </div>
+          )}
+          <header className="suggestion-list__header">
+            <h2>{suggestion[0].title}</h2>
+            <p>{suggestion[0].description}</p>
+            <Category category={suggestion[0].category} />
+          </header>
+          {windowWidth >= 768 && <Comments comments={comments} />}
+        </div>
+        <footer
+          className={`suggestion-list__footer ${
+            windowWidth >= 768 ? 'd-none' : null
+          }`}>
           <Upvote direction={'row'} upvotes={suggestion[0].upvotes} />
           <Comments comments={comments} />
         </footer>
@@ -69,6 +83,7 @@ const SuggestionDetails = ({ suggestions, currentUser }) => {
         suggestionReplies={replies}
         setReplies={setReplies}
         currentUser={currentUser}
+        windowWidth={windowWidth}
       />
       <CreateComment
         currentUser={currentUser}

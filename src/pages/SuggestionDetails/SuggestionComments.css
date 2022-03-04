@@ -10,12 +10,20 @@
   margin-top: 0.8rem;
 }
 
+@media screen and (min-width: 768px) {
+  .suggestion-comments {
+    padding: 3.2rem;
+  }
+}
+
 .suggestion-comments h1 {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.601rem;
   letter-spacing: -0.25px;
   color: var(--color-gray-secondary);
+  display: flex;
+  gap: 0.5rem;
 }
 
 .suggestion-comment__header {
@@ -60,6 +68,7 @@
     line-height: 2.168rem;
     padding-top: 1.7rem;
     padding-bottom: 3.2rem;
+    padding-left: 7.2rem;
   }
 }
 
@@ -82,7 +91,13 @@
 
 .comment-reply:first-child {
   border-left: 1px solid rgba(100, 113, 150, 0.1);
-  padding-left: 2.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .comment-reply {
+    padding-left: 2.5rem;
+    margin-left: 2rem;
+  }
 }
 
 .post-reply--container {
@@ -98,9 +113,29 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  padding-top: 2.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .add-reply {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .post-reply--container {
+    flex-direction: column-reverse;
+    width: 117px;
+  }
+
+  .comment-replies .add-reply label {
+    max-width: 461px;
+    width: 100%;
+    padding-left: 7.2rem;
+  }
 }
 
 .add-reply textarea {
+  max-width: 623px;
   width: 100%;
   padding-inline: 1.8rem;
   padding-block: 0.8rem;
@@ -140,6 +175,7 @@
 @media screen and (min-width: 768px) {
   .cancel-btn {
     height: 44px;
+    font-size: 1.4rem;
   }
 }
 

@@ -16,6 +16,13 @@
   white-space: nowrap;
 }
 
+@media screen and (min-width: 768px) {
+  .btn-text {
+    font-size: 1.4rem;
+    line-height: 2.023rem;
+  }
+}
+
 .btn-light {
   background: transparent;
   color: var(--color-gray-accent);

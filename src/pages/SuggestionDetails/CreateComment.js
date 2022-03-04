@@ -48,7 +48,7 @@ const CreateComment = ({ currentUser, currentSuggestion, setComments }) => {
       <div className="create-comment ">
         <h1>Add Comment</h1>
         <form
-          className={`add-reply ${error ? 'error-outline' : null}`}
+          className={`add-comment ${error ? 'error-outline' : null}`}
           onSubmit={handleSubmitComment}>
           <label>
             <textarea

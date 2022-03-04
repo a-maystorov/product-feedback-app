@@ -12,6 +12,7 @@ const SuggestionComments = ({
   suggestionReplies,
   setReplies,
   currentUser,
+  windowWidth,
 }) => {
   const [toggleReply, setToggleReply] = useState(false);
   const [currentCommentId, setCurrentCommentId] = useState(null);
@@ -73,10 +74,12 @@ const SuggestionComments = ({
   return (
     <div className="suggestion-comments">
       <h1>
-        {suggestionComments
-          ? suggestionComments.length + suggestionReplies.length
-          : 0}{' '}
-        Comments
+        <span>
+          {suggestionComments
+            ? suggestionComments.length + suggestionReplies.length
+            : 0}
+        </span>
+        <span>Comments</span>
       </h1>
       {suggestionComments &&
         suggestionComments.map((comment) => (

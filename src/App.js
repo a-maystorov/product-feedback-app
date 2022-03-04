@@ -73,6 +73,7 @@ const App = () => {
             <SuggestionDetails
               suggestions={suggestions}
               currentUser={currentUser}
+              windowWidth={windowWidth}
             />
           }
         />
