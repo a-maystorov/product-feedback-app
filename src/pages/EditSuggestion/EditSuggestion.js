@@ -8,10 +8,13 @@ import DropDownCategory from '../../components/DropDownCategory';
 import Button from '../../components/common/Button';
 import BackButton from '../../components/common/BackButton';
 
+// Styles
+import './EditSuggestion.css';
+
 const statusList = ['planned', 'in-progress', 'live'];
 const categoryList = ['feature', 'UI', 'UX', 'enhancement', 'bug'];
 
-const EditSuggestion = ({ suggestions, setSuggestions }) => {
+const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const suggestion =
@@ -69,12 +72,15 @@ const EditSuggestion = ({ suggestions, setSuggestions }) => {
   };
 
   return (
-    <div className="container">
+    <div className="edit-suggestion--container">
       <Link to={`/suggestion-details/${id}`} className="back-btn">
         <BackButton theme={'light'} />
       </Link>
       <div className="edit-icon">
-        <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width={windowWidth >= 768 ? '56' : '40'}
+          height={windowWidth >= 768 ? '56' : '40'}
+          xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient
               cx="103.9%"
@@ -153,11 +159,12 @@ const EditSuggestion = ({ suggestions, setSuggestions }) => {
               </label>
             </div>
           </main>
+          {success && <p className="success">{success}</p>}
+          {deleteSucess && <p className="success">{deleteSucess}</p>}
           <footer>
-            {success && <p className="success">{success}</p>}
-            {deleteSucess && <p className="success">{deleteSucess}</p>}
-            {error && <p className="error">{error}</p>}
-            <Button bgColor={'purple'} content={'Save Changes'} />
+            <div className="save-btn">
+              <Button bgColor={'purple'} content={'Save Changes'} />
+            </div>
             <Link
               to={`/suggestion-details/${id}`}
               className="create-suggestion--cancel-btn"

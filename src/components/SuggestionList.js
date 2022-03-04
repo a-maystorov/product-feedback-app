@@ -24,7 +24,7 @@ const SuggestionList = ({
           <header
             className="suggestion-list__header"
             onClick={() => {
-              windowWidth < 768 && handleMenuToggle();
+              windowWidth < 768 && menuOpen && handleMenuToggle();
             }}>
             <div
               className={

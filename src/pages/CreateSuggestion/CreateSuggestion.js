@@ -15,7 +15,7 @@ const categoryList = ['feature', 'UI', 'UX', 'enhancement', 'bug'];
 
 const CreateSuggestion = ({ suggestions, setSuggestions }) => {
   const navigate = useNavigate();
-  const [currentCategory, setCurrentCategory] = useState('Feature');
+  const [currentCategory, setCurrentCategory] = useState('feature');
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [error, setError] = useState(null);
@@ -61,7 +61,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
   };
 
   return (
-    <div className="container">
+    <div className="edit-suggestion--container">
       <Link to="/" className="back-btn">
         <BackButton theme={'light'} />
       </Link>
@@ -84,7 +84,6 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}
                 />
-                {error && <p className="error">{error}</p>}
               </label>
             </div>
             <div className="create-suggestion__category">
@@ -108,13 +107,15 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
                 <textarea
                   onChange={(e) => setDetails(e.target.value)}
                   value={details}></textarea>
-                {error && <p className="error">{error}</p>}
               </label>
             </div>
           </main>
+          {success && <p className="success">{success}</p>}
+          {error && <p className="error">{error}</p>}
           <footer>
-            {success && <p className="success">{success}</p>}
-            <Button bgColor={'purple'} content={'Add Feedback'} />
+            <div className="save-btn">
+              <Button bgColor={'purple'} content={'Add Feedback'} />
+            </div>
             <Link
               to="/"
               className="create-suggestion--cancel-btn"

@@ -1,0 +1,23 @@
+.edit-suggestion--container {
+  max-width: 327px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.edit-icon {
+  margin-left: 2.4rem;
+  transform: translateY(50%);
+}
+
+@media screen and (min-width: 768px) {
+  .edit-suggestion--container {
+    max-width: 540px;
+  }
+
+  .edit-icon {
+    transform: translateY(70%);
+    width: 56px;
+    height: 56px;
+  }
+}

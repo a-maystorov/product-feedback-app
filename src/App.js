@@ -92,6 +92,7 @@ const App = () => {
             <EditSuggestion
               suggestions={suggestions}
               setSuggestions={setSuggestions}
+              windowWidth={windowWidth}
             />
           }
         />

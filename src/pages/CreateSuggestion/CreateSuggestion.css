@@ -5,6 +5,12 @@
   margin-bottom: 7rem;
 }
 
+@media screen and (min-width: 768px) {
+  .create-suggestion {
+    padding: 4.2rem;
+  }
+}
+
 .create-suggestion h1 {
   font-weight: 700;
   font-size: 1.8rem;
@@ -51,9 +57,13 @@
 
 .create-suggestion textarea {
   resize: none;
-  max-width: 100%;
-  width: 279px;
   height: 120px;
+}
+
+@media screen and (min-width: 768px) {
+  .create-suggestion textarea {
+    height: 90px;
+  }
 }
 
 .create-suggestion__title,
@@ -62,7 +72,7 @@
 }
 
 .create-suggestion__detail {
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
 }
 
 .create-suggestion footer {
@@ -73,20 +83,23 @@
   gap: 1.6rem;
 }
 
-.create-suggestion select {
-  appearance: none;
-}
-
-.create-suggestion option {
-  border-radius: 10px;
-  background: var(--color-white-primary);
-  color: var(--color-gray-accent);
-  border-bottom: 1px solid red;
+@media screen and (min-width: 768px) {
+  .create-suggestion footer {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
 }
 
 .create-suggestion .dd-criteria-list {
-  max-width: 255px;
+  max-width: 279px;
+  width: 100%;
   max-height: 240px;
+}
+
+@media screen and (min-width: 768px) {
+  .create-suggestion .dd-criteria-list {
+    max-width: 456px;
+  }
 }
 
 .create-suggestion .dd-btn__sort-by {
@@ -94,8 +107,6 @@
 }
 
 .create-suggestion .dd-btn {
-  max-width: 100%;
-  width: 279px;
   padding-inline: 2.4rem;
   padding-block: 1.3rem;
   background: var(--color-white-secondary);
@@ -175,14 +186,21 @@
   align-items: center;
 }
 
-.success {
-  color: #4bca81;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  font-size: 1.5rem;
+.save-btn {
+  width: 100%;
 }
 
-.edit-icon {
-  margin-left: 2.4rem;
-  transform: translateY(50%);
+@media screen and (min-width: 768px) {
+  .create-suggestion--cancel-btn,
+  .create-suggestion--delete-btn {
+    height: 44px;
+    width: 93px;
+  }
+  .create-suggestion--cancel-btn {
+    margin-left: 11rem;
+  }
+
+  .save-btn {
+    width: 144px;
+  }
 }

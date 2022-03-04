@@ -31,6 +31,19 @@
 }
 
 .error {
-  padding-top: 0.4rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
   color: #d73737;
+}
+
+.success {
+  color: #4bca81;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
 }
