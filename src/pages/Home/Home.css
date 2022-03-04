@@ -19,3 +19,47 @@
 .Home main.dark {
   filter: brightness(53%);
 }
+
+@media screen and (min-width: 768px) {
+  .Home nav {
+    display: flex;
+    gap: 1rem;
+    padding-top: 5.6rem;
+    padding-bottom: 4rem;
+  }
+
+  .suggestions-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.6rem;
+    margin-right: 3.8rem;
+    width: 156px;
+  }
+
+  .number-of-suggestions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-white-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.601rem;
+    letter-spacing: -0.25px;
+  }
+
+  .Home main {
+    margin-top: 2.4rem;
+  }
+
+  .Home__header {
+    padding: 2.4rem;
+    height: 72px;
+  }
+
+  .Home__header__add-feedback--container {
+    width: 158px;
+    margin-left: 9.1rem;
+  }
+}

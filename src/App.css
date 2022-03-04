@@ -24,6 +24,12 @@
   border-radius: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 689px;
+  }
+}
+
 .error {
   padding-top: 0.4rem;
   color: #d73737;

@@ -1,13 +1,15 @@
 import './Navbar.css';
 
-const NavBar = ({ onClick, menuOpen }) => {
+const NavBar = ({ onClick, menuOpen, windowWidth }) => {
   return (
     <div className="navbar">
       <header className="navbar__header">
         <h1>Frontend Mentor</h1>
         <p>Feedback Board</p>
       </header>
-      <div className="menu-btn" onClick={onClick}>
+      <div
+        className={`menu-btn ${windowWidth < 768 ? null : 'd-none'}`}
+        onClick={onClick}>
         <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg">
           <g fill="#FFF" fillRule="evenodd">
             <path

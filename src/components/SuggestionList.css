@@ -10,7 +10,6 @@
   background: var(--color-white-primary);
   margin-bottom: 1.6rem;
   border-radius: 10px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,6 +44,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .suggestion-list__item {
+    max-height: 151px;
+  }
+
+  .suggestion-list__header h2 {
+    font-size: 1.8rem;
+    line-height: 2.601rem;
+    letter-spacing: -0.25px;
+  }
+
+  .suggestion-list__header p {
+    font-size: 1.6rem;
+    line-height: 2.312rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .suggestion-details__link {
+    padding-left: 4rem;
+    width: 85%;
+  }
 }
 
 /* Roadmap styles */
@@ -125,4 +147,16 @@
 .live .suggestion-list__item {
   border-radius: 5px;
   border-top: 6px solid var(--color-blue-secondary);
+}
+
+@media screen and (min-width: 768px) {
+  .suggestion-list__tablet-plus {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .suggestion-list__tablet-plus__upvotes {
+    align-self: flex-start;
+  }
 }

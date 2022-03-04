@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 // Pages
@@ -19,21 +19,32 @@ import data from './data.json';
 const { productRequests } = data;
 const { currentUser } = data;
 
+const innerWidth = window.innerWidth;
+
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [suggestions, setSuggestions] = useState(productRequests);
+  const [windowWidth, setWindowWidth] = useState(innerWidth);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.addEventListener('resize', function () {
+      setWindowWidth(window.innerWidth);
+    });
+  });
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
     document.body.classList.toggle('overflowY-hidden');
   };
 
+  const suggestionStatus = [];
   const planned = [];
   const inProgress = [];
   const live = [];
 
   suggestions.forEach((suggestion) => {
+    if (suggestion.status === 'suggestion') suggestionStatus.push(suggestion);
     if (suggestion.status === 'planned') planned.push(suggestion);
     if (suggestion.status === 'in-progress') inProgress.push(suggestion);
     if (suggestion.status === 'live') live.push(suggestion);
@@ -47,11 +58,13 @@ const App = () => {
           element={
             <Home
               suggestionRequests={suggestions}
+              suggestionStatusLength={suggestionStatus.length}
               plannedLength={planned.length}
               inProgressLength={inProgress.length}
               liveLength={live.length}
               menuOpen={menuOpen}
               handleMenuToggle={handleMenuToggle}
+              windowWidth={windowWidth}
             />
           }
         />

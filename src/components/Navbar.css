@@ -26,6 +26,30 @@
   color: var(--color-white-primary);
 }
 
+@media screen and (min-width: 768px) {
+  .navbar {
+    background: url('../../public/assets/suggestions/tablet/background-header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 223px;
+    height: 178px;
+    border-radius: 10px;
+    align-items: flex-end;
+  }
+
+  .navbar__header h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.89rem;
+    letter-spacing: -0.25px;
+  }
+
+  .navbar__header p {
+    font-size: 1.5rem;
+    line-height: 2.168rem;
+  }
+}
+
 .menu-btn {
   cursor: pointer;
 }
