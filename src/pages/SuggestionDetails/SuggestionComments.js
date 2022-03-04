@@ -12,7 +12,6 @@ const SuggestionComments = ({
   suggestionReplies,
   setReplies,
   currentUser,
-  windowWidth,
 }) => {
   const [toggleReply, setToggleReply] = useState(false);
   const [currentCommentId, setCurrentCommentId] = useState(null);

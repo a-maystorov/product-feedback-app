@@ -83,7 +83,6 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
         suggestionReplies={replies}
         setReplies={setReplies}
         currentUser={currentUser}
-        windowWidth={windowWidth}
       />
       <CreateComment
         currentUser={currentUser}
