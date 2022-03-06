@@ -1,5 +1,6 @@
 .roadmap {
-  width: 223px;
+  width: 100%;
+  max-width: 223px;
   height: 178px;
   border-radius: 10px;
   background: var(--color-white-primary);
@@ -9,6 +10,12 @@
   justify-content: space-evenly;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+@media screen and (min-width: 1366px) {
+  .roadmap {
+    max-width: 255px;
+  }
 }
 
 .roadmap header {

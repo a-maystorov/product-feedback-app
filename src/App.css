@@ -30,6 +30,16 @@
   }
 }
 
+.desktop-container {
+  min-width: 825px;
+}
+
+@media screen and (min-width: 1366px) {
+  .container {
+    max-width: 1110px;
+  }
+}
+
 .error {
   font-weight: 700;
   letter-spacing: 0.1rem;

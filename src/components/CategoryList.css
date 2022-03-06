@@ -12,3 +12,10 @@
 .category-list__item {
   margin-bottom: 0.6rem;
 }
+
+@media screen and (min-width: 1366px) {
+  .category-list {
+    max-width: 255px;
+    max-height: 166px;
+  }
+}

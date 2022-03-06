@@ -1,3 +1,7 @@
+.Home {
+  padding-bottom: 8rem;
+}
+
 .Home__header {
   background: var(--color-gray-primary);
   width: 100%;
@@ -32,7 +36,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 1.6rem;
     margin-right: 3.8rem;
     width: 156px;
@@ -49,6 +52,10 @@
     letter-spacing: -0.25px;
   }
 
+  .number-of-suggestions h2 {
+    font-size: 1.8rem;
+  }
+
   .Home main {
     margin-top: 2.4rem;
   }
@@ -61,5 +68,27 @@
   .Home__header__add-feedback--container {
     width: 158px;
     margin-left: 9.1rem;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .Home {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 9.4rem;
+    padding-bottom: 12.9rem;
+  }
+  .Home nav {
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .suggestions-status {
+    margin: 0;
+  }
+
+  .Home__header__add-feedback--container {
+    margin-left: 20rem;
   }
 }

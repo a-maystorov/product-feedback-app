@@ -53,3 +53,13 @@
 .menu-btn {
   cursor: pointer;
 }
+
+@media screen and (min-width: 1366px) {
+  .navbar {
+    background: url('../../public/assets/suggestions/desktop/background-header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 137px;
+    min-width: 255px;
+  }
+}
