@@ -40,7 +40,9 @@ const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
               navigate('/product-feedback-app/roadmap-list/planned')
             }
             className={
-              pathname === '/roadmap-list/planned' ? 'planned-selected' : null
+              pathname === '/product-feedback-app/roadmap-list/planned'
+                ? 'planned-selected'
+                : null
             }>
             Planned ({planned.length})
           </button>
@@ -58,7 +60,9 @@ const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
           <button
             onClick={() => navigate('/product-feedback-app/roadmap-list/live')}
             className={
-              pathname === '/roadmap-list/live' ? 'live-selected' : null
+              pathname === '/product-feedback-app/roadmap-list/live'
+                ? 'live-selected'
+                : null
             }>
             Live ({live.length})
           </button>

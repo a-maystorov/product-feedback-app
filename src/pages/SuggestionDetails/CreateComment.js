@@ -8,8 +8,8 @@ const CreateComment = ({ currentUser, currentSuggestion, setComments }) => {
   const [charCount, setCharCount] = useState(250);
 
   const addComment = (commentToAdd) => {
-    if (!currentSuggestion[0].comments) currentSuggestion[0].comments = [];
-    currentSuggestion[0].comments.push(commentToAdd);
+    if (!currentSuggestion.comments) currentSuggestion.comments = [];
+    currentSuggestion.comments.push(commentToAdd);
 
     return commentToAdd;
   };

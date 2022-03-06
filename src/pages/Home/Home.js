@@ -153,7 +153,7 @@ const Home = ({
             changeSortCriteria={changeSortCriteria}
           />
           <Link
-            to={'/create-suggestion'}
+            to={'/product-feedback-app/create-suggestion'}
             className="Home__header__add-feedback--container">
             <Button bgColor={'purple'} content={'+ Add Feedback'} />
           </Link>

@@ -61,7 +61,7 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
         return suggestion;
       });
 
-      setTimeout(() => navigate('/'), 2000);
+      setTimeout(() => navigate('/product-feedback-app'), 2000);
       setSuccess('The Feedback has been updated!');
     } catch (err) {
       console.log(err.message);
