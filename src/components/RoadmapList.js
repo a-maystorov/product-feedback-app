@@ -22,7 +22,7 @@ const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
       <nav>
         <header className="roadmap-list__header">
           <div className="roadmap-list__header--back-btn">
-            <Link to="/product-feedback-app">
+            <Link to="/product-feedback-app/">
               <BackButton theme={'dark'} />
             </Link>
             <h1>Roadmap</h1>

@@ -129,7 +129,11 @@ const Home = ({
       <div className={windowWidth >= 1366 ? 'desktop-container' : null}>
         <header
           className={`Home__header ${
-            menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
+            menuOpen &&
+            (pathname === '/product-feedback-app/' ||
+              pathname === '/product-feedback-app')
+              ? 'dark'
+              : null
           } ${windowWidth >= 768 ? 'container' : null}`}>
           {windowWidth >= 768 && (
             <div className="suggestions-status">
@@ -160,7 +164,11 @@ const Home = ({
         </header>
         <main
           className={
-            menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
+            menuOpen &&
+            (pathname === '/product-feedback-app/' ||
+              pathname === '/product-feedback-app')
+              ? 'dark'
+              : null
           }>
           <SuggestionList
             suggestions={suggestions}

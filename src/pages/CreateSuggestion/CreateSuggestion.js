@@ -54,7 +54,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
       setTitle('');
       setError(null);
       setSuccess('The Feedback has been added!');
-      setTimeout(() => navigate('/product-feedback-app'), 2000);
+      setTimeout(() => navigate('/product-feedback-app/'), 2000);
     } catch (err) {
       setError(err.message);
     }
@@ -62,7 +62,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
 
   return (
     <div className="edit-suggestion--container">
-      <Link to="/product-feedback-app" className="back-btn">
+      <Link to="/product-feedback-app/" className="back-btn">
         <BackButton theme={'light'} />
       </Link>
       <div className="plus-icon">
@@ -117,7 +117,7 @@ const CreateSuggestion = ({ suggestions, setSuggestions }) => {
               <Button bgColor={'purple'} content={'Add Feedback'} />
             </div>
             <Link
-              to="/product-feedback-app"
+              to="/product-feedback-app/"
               className="create-suggestion--cancel-btn"
               onClick={() => {
                 setTitle('');

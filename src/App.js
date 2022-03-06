@@ -52,11 +52,15 @@ const App = () => {
   return (
     <div
       className={`App ${
-        menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
+        menuOpen &&
+        (pathname === '/product-feedback-app/' ||
+          pathname === '/product-feedback-app')
+          ? 'dark'
+          : null
       }`}>
       <Routes>
         <Route
-          path="/product-feedback-app"
+          path="/product-feedback-app/"
           element={
             <Home
               suggestionRequests={suggestions}

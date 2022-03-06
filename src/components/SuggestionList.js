@@ -64,7 +64,9 @@ const SuggestionList = ({
           </header>
           <footer
             className={`suggestion-list__footer ${
-              windowWidth >= 768 && pathname === '/product-feedback-app'
+              windowWidth >= 768 &&
+              (pathname === '/product-feedback-app/' ||
+                pathname === '/product-feedback-app')
                 ? 'd-none'
                 : null
             }`}>

@@ -45,7 +45,7 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
       }>
       <div className={windowWidth >= 768 ? 'suggestion-details' : null}>
         <nav className="suggestion-details__nav">
-          <Link to="/product-feedback-app">
+          <Link to="/product-feedback-app/">
             <BackButton theme={'light'} />
           </Link>
           <Link
