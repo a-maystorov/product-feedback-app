@@ -30,7 +30,6 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
   const [currentStatus, setCurrentStatus] = useState(currentSuggestion.status);
   const [newTitle, setNewTitle] = useState('');
   const [newDetails, setNewDetails] = useState('');
-  const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [deleteSucess, setDeleteSucess] = useState(null);
 
@@ -63,11 +62,9 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
       });
 
       setTimeout(() => navigate('/'), 2000);
-
-      setError(null);
       setSuccess('The Feedback has been updated!');
     } catch (err) {
-      setError(err.message);
+      console.log(err.message);
     }
   };
 
@@ -171,7 +168,6 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
               onClick={() => {
                 setNewTitle('');
                 setNewDetails('');
-                setError(null);
               }}>
               Cancel
             </Link>
