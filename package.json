@@ -1,7 +1,7 @@
 {
   "name": "product-feedback-app",
   "version": "0.1.0",
-  "homepage": "https://SirDev97.github.io/product-feedback-app",
+  "homepage": "https://sirdev97.github.io/product-feedback-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
