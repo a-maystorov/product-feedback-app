@@ -24,3 +24,19 @@
     max-width: 142px;
   }
 }
+
+.suggestion-details .suggestion-list__tablet-plus {
+  justify-content: space-between;
+}
+
+.suggestion-details .suggestion-list__header {
+  width: 85%;
+  padding-left: 3rem;
+}
+
+@media screen and (min-width: 1366px) {
+  .suggestion-details--container {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}

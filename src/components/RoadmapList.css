@@ -1,3 +1,7 @@
+.roadmap-list {
+  padding-bottom: 5rem;
+}
+
 .roadmap-header h1 {
   font-weight: 700;
   font-size: 1.8rem;
@@ -20,6 +24,15 @@
   .roadmap-header h1,
   .roadmap-header p {
     font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .roadmap-header h1 {
+    font-size: 1.8rem;
+  }
+  .roadmap-header p {
+    font-size: 1.6rem;
   }
 }
 

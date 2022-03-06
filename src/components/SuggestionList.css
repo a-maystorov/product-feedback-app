@@ -64,7 +64,7 @@
   }
 
   .suggestion-details__link {
-    padding-left: 4rem;
+    padding-left: 3rem;
     width: 85%;
   }
 }
@@ -152,7 +152,7 @@
 @media screen and (min-width: 768px) {
   .suggestion-list__tablet-plus {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -171,5 +171,14 @@
   }
   .suggestion-list__item.suggestion-roadmap a {
     padding: 0;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .suggestion-list__item.suggestion-roadmap h2 {
+    font-size: 1.8rem;
+  }
+  .suggestion-list__item.suggestion-roadmap p {
+    font-size: 1.6rem;
   }
 }

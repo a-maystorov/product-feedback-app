@@ -36,6 +36,10 @@
   cursor: pointer;
 }
 
+.add-comment textarea:focus {
+  border: 1px solid var(--color-blue-primary);
+}
+
 .post-comment--container {
   width: 119px;
 }

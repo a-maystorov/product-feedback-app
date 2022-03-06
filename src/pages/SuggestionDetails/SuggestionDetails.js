@@ -42,53 +42,58 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
   }, [comments, suggestion]);
 
   return (
-    <div className="container">
-      <nav className="suggestion-details__nav">
-        <Link to="/">
-          <BackButton theme={'light'} />
-        </Link>
-        <Link
-          to={`/edit-suggestion/${suggestion[0].id}`}
-          className="nav-btn--container">
-          <Button bgColor={'blue'} content={'Edit Feedback'} />
-        </Link>
-      </nav>
-      <div className="suggestion-list__item">
-        <div
-          className={
-            windowWidth >= 768 ? 'suggestion-list__tablet-plus' : null
-          }>
-          {windowWidth >= 768 && (
-            <div className="suggestion-list__tablet-plus__upvotes">
-              <Upvote direction={'col'} upvotes={suggestion[0].upvotes} />
-            </div>
-          )}
-          <header className="suggestion-list__header">
-            <h2>{suggestion[0].title}</h2>
-            <p>{suggestion[0].description}</p>
-            <Category category={suggestion[0].category} />
-          </header>
-          {windowWidth >= 768 && <Comments comments={comments} />}
+    <div
+      className={
+        windowWidth < 1366 ? 'container' : 'suggestion-details--container'
+      }>
+      <div className={windowWidth >= 768 ? 'suggestion-details' : null}>
+        <nav className="suggestion-details__nav">
+          <Link to="/">
+            <BackButton theme={'light'} />
+          </Link>
+          <Link
+            to={`/edit-suggestion/${suggestion[0].id}`}
+            className="nav-btn--container">
+            <Button bgColor={'blue'} content={'Edit Feedback'} />
+          </Link>
+        </nav>
+        <div className="suggestion-list__item">
+          <div
+            className={
+              windowWidth >= 768 ? 'suggestion-list__tablet-plus' : null
+            }>
+            {windowWidth >= 768 && (
+              <div className="suggestion-list__tablet-plus__upvotes">
+                <Upvote direction={'col'} upvotes={suggestion[0].upvotes} />
+              </div>
+            )}
+            <header className="suggestion-list__header">
+              <h2>{suggestion[0].title}</h2>
+              <p>{suggestion[0].description}</p>
+              <Category category={suggestion[0].category} />
+            </header>
+            {windowWidth >= 768 && <Comments comments={comments} />}
+          </div>
+          <footer
+            className={`suggestion-list__footer ${
+              windowWidth >= 768 ? 'd-none' : null
+            }`}>
+            <Upvote direction={'row'} upvotes={suggestion[0].upvotes} />
+            <Comments comments={comments} />
+          </footer>
         </div>
-        <footer
-          className={`suggestion-list__footer ${
-            windowWidth >= 768 ? 'd-none' : null
-          }`}>
-          <Upvote direction={'row'} upvotes={suggestion[0].upvotes} />
-          <Comments comments={comments} />
-        </footer>
+        <SuggestionComments
+          suggestionComments={comments}
+          suggestionReplies={replies}
+          setReplies={setReplies}
+          currentUser={currentUser}
+        />
+        <CreateComment
+          currentUser={currentUser}
+          currentSuggestion={suggestion}
+          setComments={setComments}
+        />
       </div>
-      <SuggestionComments
-        suggestionComments={comments}
-        suggestionReplies={replies}
-        setReplies={setReplies}
-        currentUser={currentUser}
-      />
-      <CreateComment
-        currentUser={currentUser}
-        currentSuggestion={suggestion}
-        setComments={setComments}
-      />
     </div>
   );
 };
