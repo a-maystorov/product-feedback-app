@@ -16,6 +16,13 @@
   margin-top: 0.4rem;
 }
 
+@media screen and (min-width: 768px) {
+  .roadmap-header h1,
+  .roadmap-header p {
+    font-size: 1.4rem;
+  }
+}
+
 .roadmap-list__footer {
   display: flex;
   justify-content: center;
@@ -73,6 +80,20 @@
   padding-top: 0.3rem;
 }
 
+@media screen and (min-width: 768px) {
+  .roadmap-list__header {
+    border-radius: 10px;
+    height: 113px;
+    margin-top: 5.6rem;
+  }
+
+  .roadmap-list__header--back-btn h1 {
+    font-size: 2.4rem;
+    line-height: 3.468rem;
+    letter-spacing: -0.33px;
+  }
+}
+
 .roadmap-list__header--back-btn {
   display: flex;
   flex-direction: column;
@@ -87,4 +108,15 @@
 
 .roadmap-list__header--add-btn {
   width: 134px;
+}
+
+@media screen and (min-width: 768px) {
+  .roadmap-list__header--add-btn {
+    width: 158px;
+  }
+}
+
+.roadmap-list__suggestions {
+  display: flex;
+  gap: 1rem;
 }

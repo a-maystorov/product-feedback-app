@@ -159,4 +159,17 @@
   .suggestion-list__tablet-plus__upvotes {
     align-self: flex-start;
   }
+
+  .suggestion-list__item.suggestion-roadmap {
+    max-height: 251px;
+    padding: 2rem;
+  }
+
+  .suggestion-list__item.suggestion-roadmap h2,
+  .suggestion-list__item.suggestion-roadmap p {
+    font-size: 1.3rem;
+  }
+  .suggestion-list__item.suggestion-roadmap a {
+    padding: 0;
+  }
 }

@@ -20,7 +20,16 @@ const SuggestionList = ({
     <div className={`suggestion-list container ${menuOpen ? 'dark' : null}`}>
       {suggestions.length === 0 && <NoSuggestionsYet />}
       {suggestions.map((suggestion) => (
-        <div className="suggestion-list__item" key={suggestion.id}>
+        <div
+          className={`suggestion-list__item ${
+            pathname === '/roadmap-list' ||
+            pathname === '/roadmap-list/planned' ||
+            pathname === '/roadmap-list/in-progress' ||
+            pathname === '/roadmap-list/live'
+              ? 'suggestion-roadmap'
+              : null
+          }`}
+          key={suggestion.id}>
           <header
             className="suggestion-list__header"
             onClick={() => {

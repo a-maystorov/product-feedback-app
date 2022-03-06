@@ -10,6 +10,7 @@ const SideBar = ({
   inProgressLength,
   liveLength,
   handleMenuToggle,
+  windowWidth,
 }) => {
   return (
     <div className={`sidebar ${!menuOpen ? 'd-none' : null}`}>
@@ -22,6 +23,7 @@ const SideBar = ({
         inProgressLength={inProgressLength}
         liveLength={liveLength}
         handleMenuToggle={handleMenuToggle}
+        windowWidth={windowWidth}
       />
     </div>
   );

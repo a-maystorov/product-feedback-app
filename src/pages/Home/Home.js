@@ -109,6 +109,7 @@ const Home = ({
             plannedLength={plannedLength}
             inProgressLength={inProgressLength}
             liveLength={liveLength}
+            windowWidth={windowWidth}
           />
         )}
       </nav>
@@ -120,6 +121,7 @@ const Home = ({
         inProgressLength={inProgressLength}
         liveLength={liveLength}
         handleMenuToggle={handleMenuToggle}
+        windowWidth={windowWidth}
       />
       <header
         className={`Home__header ${

@@ -103,6 +103,7 @@ const App = () => {
               planned={planned}
               inProgress={inProgress}
               live={live}
+              windowWidth={windowWidth}
             />
           }
         />

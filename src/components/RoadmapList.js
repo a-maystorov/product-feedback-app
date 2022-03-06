@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Route,
   Routes,
@@ -13,12 +14,18 @@ import Live from './Live';
 import Planned from './Planned';
 import './RoadmapList.css';
 
-const RoadmapList = ({ planned, inProgress, live }) => {
+const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  useEffect(() => {
+    document.addEventListener('resize', function () {
+      return windowWidth >= 768 ? navigate('/roadmap-list') : null;
+    });
+  });
+
   return (
-    <div className="roadmap-list">
+    <div className={`roadmap-list ${windowWidth >= 768 ? 'container' : null}`}>
       <nav>
         <header className="roadmap-list__header">
           <div className="roadmap-list__header--back-btn">
@@ -33,7 +40,8 @@ const RoadmapList = ({ planned, inProgress, live }) => {
             <Button bgColor={'purple'} content={'+ Add Feedback'} />
           </Link>
         </header>
-        <footer className="roadmap-list__footer ">
+        <footer
+          className={windowWidth >= 768 ? 'd-none' : 'roadmap-list__footer'}>
           <button
             onClick={() => navigate('/roadmap-list/planned')}
             className={
@@ -61,15 +69,26 @@ const RoadmapList = ({ planned, inProgress, live }) => {
       </nav>
       <Routes>
         <Route
-          path="planned"
+          path={windowWidth < 768 ? 'planned' : 'roadmap-list'}
           element={<Planned plannedSuggestions={planned} />}
         />
         <Route
-          path="in-progress"
+          path={windowWidth < 768 ? 'in-progress' : 'roadmap-list'}
           element={<InProgress inProgressSuggestions={inProgress} />}
         />
-        <Route path="live" element={<Live liveSuggestions={live} />} />
+        <Route
+          path={windowWidth < 768 ? 'live' : 'roadmap-list'}
+          element={<Live liveSuggestions={live} />}
+        />
       </Routes>
+
+      {windowWidth >= 768 && (
+        <div className="roadmap-list__suggestions">
+          <Planned plannedSuggestions={planned} />
+          <InProgress inProgressSuggestions={inProgress} />
+          <Live liveSuggestions={live} />
+        </div>
+      )}
     </div>
   );
 };

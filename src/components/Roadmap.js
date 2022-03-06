@@ -6,12 +6,15 @@ const Roadmap = ({
   inProgressLength,
   liveLength,
   handleMenuToggle,
+  windowWidth,
 }) => {
   return (
     <div className="roadmap">
       <header>
         <h1 className="roadmap__header">Roadmap</h1>
-        <Link to={'/roadmap-list/planned'} className="view-btn">
+        <Link
+          to={windowWidth < 768 ? '/roadmap-list/planned' : '/roadmap-list'}
+          className="view-btn">
           <div onClick={handleMenuToggle}>View</div>
         </Link>
       </header>
