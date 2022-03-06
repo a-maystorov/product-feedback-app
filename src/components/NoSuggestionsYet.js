@@ -112,7 +112,9 @@ const NoSuggestionsYet = () => {
           Got a suggestion? Found a bug that needs to be squashed? We love
           hearing about new ideas to improve our app.
         </p>
-        <Link to="/create-suggestion" className="no-suggestion--btn-container">
+        <Link
+          to="/product-feedback-app/create-suggestion"
+          className="no-suggestion--btn-container">
           <Button bgColor={'purple'} content={'+ Add Feedback'} />
         </Link>
       </div>

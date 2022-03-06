@@ -13,7 +13,11 @@ const Roadmap = ({
       <header>
         <h1 className="roadmap__header">Roadmap</h1>
         <Link
-          to={windowWidth < 768 ? '/roadmap-list/planned' : '/roadmap-list'}
+          to={
+            windowWidth < 768
+              ? '/product-feedback-app/roadmap-list/planned'
+              : '/product-feedback-app/roadmap-list'
+          }
           className="view-btn">
           <div onClick={handleMenuToggle}>View</div>
         </Link>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Route,
   Routes,
@@ -18,24 +17,18 @@ const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    document.addEventListener('resize', function () {
-      return windowWidth >= 768 ? navigate('/roadmap-list') : null;
-    });
-  });
-
   return (
     <div className={`roadmap-list ${windowWidth >= 768 ? 'container' : null}`}>
       <nav>
         <header className="roadmap-list__header">
           <div className="roadmap-list__header--back-btn">
-            <Link to="/">
+            <Link to="/product-feedback-app">
               <BackButton theme={'dark'} />
             </Link>
             <h1>Roadmap</h1>
           </div>
           <Link
-            to={'/create-suggestion'}
+            to={'/product-feedback-app/create-suggestion'}
             className="roadmap-list__header--add-btn">
             <Button bgColor={'purple'} content={'+ Add Feedback'} />
           </Link>
@@ -43,23 +36,27 @@ const RoadmapList = ({ planned, inProgress, live, windowWidth }) => {
         <footer
           className={windowWidth >= 768 ? 'd-none' : 'roadmap-list__footer'}>
           <button
-            onClick={() => navigate('/roadmap-list/planned')}
+            onClick={() =>
+              navigate('/product-feedback-app/roadmap-list/planned')
+            }
             className={
               pathname === '/roadmap-list/planned' ? 'planned-selected' : null
             }>
             Planned ({planned.length})
           </button>
           <button
-            onClick={() => navigate('/roadmap-list/in-progress')}
+            onClick={() =>
+              navigate('/product-feedback-app/roadmap-list/in-progress')
+            }
             className={
-              pathname === '/roadmap-list/in-progress'
+              pathname === '/product-feedback-app/roadmap-list/in-progress'
                 ? 'in-progress-selected'
                 : null
             }>
             In-Progress ({inProgress.length})
           </button>
           <button
-            onClick={() => navigate('/roadmap-list/live')}
+            onClick={() => navigate('/product-feedback-app/roadmap-list/live')}
             className={
               pathname === '/roadmap-list/live' ? 'live-selected' : null
             }>

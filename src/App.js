@@ -50,10 +50,13 @@ const App = () => {
   });
 
   return (
-    <div className={`App ${menuOpen && pathname === '/' ? 'dark' : null}`}>
+    <div
+      className={`App ${
+        menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
+      }`}>
       <Routes>
         <Route
-          path="/"
+          path="/product-feedback-app"
           element={
             <Home
               suggestionRequests={suggestions}
@@ -68,7 +71,7 @@ const App = () => {
           }
         />
         <Route
-          path="/suggestion-details/:id/*"
+          path="/product-feedback-app/suggestion-details/:id/*"
           element={
             <SuggestionDetails
               suggestions={suggestions}
@@ -78,7 +81,7 @@ const App = () => {
           }
         />
         <Route
-          path="/create-suggestion"
+          path="/product-feedback-app/create-suggestion"
           element={
             <CreateSuggestion
               suggestions={suggestions}
@@ -87,7 +90,7 @@ const App = () => {
           }
         />
         <Route
-          path="/edit-suggestion/:id/*"
+          path="/product-feedback-app/edit-suggestion/:id/*"
           element={
             <EditSuggestion
               suggestions={suggestions}
@@ -97,7 +100,7 @@ const App = () => {
           }
         />
         <Route
-          path="/roadmap-list/*"
+          path="/product-feedback-app/roadmap-list/*"
           element={
             <RoadmapList
               planned={planned}

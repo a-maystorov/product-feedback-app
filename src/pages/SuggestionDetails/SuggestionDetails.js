@@ -20,14 +20,11 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
   const [comments, setComments] = useState([]);
   const [replies, setReplies] = useState([]);
   const { id } = useParams();
-  const [suggestion, setSuggestion] = useState(() => {
-    const currentSuggestion =
-      suggestions &&
-      suggestions.filter((suggestion) =>
-        suggestion.id === parseFloat(id) ? suggestion : null
-      );
-    return currentSuggestion;
-  });
+  const suggestion =
+    suggestions &&
+    suggestions.find((suggestion) =>
+      suggestion.id === parseFloat(id) ? suggestion : null
+    );
 
   useEffect(() => {
     const suggestionReplies =
@@ -38,7 +35,7 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
       });
 
     suggestionReplies && setReplies(suggestionReplies.flat(1));
-    suggestion[0].comments && setComments(suggestion[0].comments);
+    suggestion.comments && setComments(suggestion.comments);
   }, [comments, suggestion]);
 
   return (
@@ -48,11 +45,11 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
       }>
       <div className={windowWidth >= 768 ? 'suggestion-details' : null}>
         <nav className="suggestion-details__nav">
-          <Link to="/">
+          <Link to="/product-feedback-app">
             <BackButton theme={'light'} />
           </Link>
           <Link
-            to={`/edit-suggestion/${suggestion[0].id}`}
+            to={`/product-feedback-app/edit-suggestion/${suggestion.id}`}
             className="nav-btn--container">
             <Button bgColor={'blue'} content={'Edit Feedback'} />
           </Link>
@@ -64,13 +61,13 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
             }>
             {windowWidth >= 768 && (
               <div className="suggestion-list__tablet-plus__upvotes">
-                <Upvote direction={'col'} upvotes={suggestion[0].upvotes} />
+                <Upvote direction={'col'} upvotes={suggestion.upvotes} />
               </div>
             )}
             <header className="suggestion-list__header">
-              <h2>{suggestion[0].title}</h2>
-              <p>{suggestion[0].description}</p>
-              <Category category={suggestion[0].category} />
+              <h2>{suggestion.title}</h2>
+              <p>{suggestion.description}</p>
+              <Category category={suggestion.category} />
             </header>
             {windowWidth >= 768 && <Comments comments={comments} />}
           </div>
@@ -78,7 +75,7 @@ const SuggestionDetails = ({ suggestions, currentUser, windowWidth }) => {
             className={`suggestion-list__footer ${
               windowWidth >= 768 ? 'd-none' : null
             }`}>
-            <Upvote direction={'row'} upvotes={suggestion[0].upvotes} />
+            <Upvote direction={'row'} upvotes={suggestion.upvotes} />
             <Comments comments={comments} />
           </footer>
         </div>

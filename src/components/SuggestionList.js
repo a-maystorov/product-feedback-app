@@ -22,10 +22,10 @@ const SuggestionList = ({
       {suggestions.map((suggestion) => (
         <div
           className={`suggestion-list__item ${
-            pathname === '/roadmap-list' ||
-            pathname === '/roadmap-list/planned' ||
-            pathname === '/roadmap-list/in-progress' ||
-            pathname === '/roadmap-list/live'
+            pathname === '/product-feedback-app/roadmap-list' ||
+            pathname === '/product-feedback-app/roadmap-list/planned' ||
+            pathname === '/product-feedback-app/roadmap-list/in-progress' ||
+            pathname === '/product-feedback-app/roadmap-list/live'
               ? 'suggestion-roadmap'
               : null
           }`}
@@ -46,7 +46,7 @@ const SuggestionList = ({
               )}
               <Link
                 className="suggestion-details__link"
-                to={`/suggestion-details/${suggestion.id}`}>
+                to={`/product-feedback-app/suggestion-details/${suggestion.id}`}>
                 <div className="status">
                   <div className="status-dot"></div>
                   {suggestion.status}
@@ -64,7 +64,9 @@ const SuggestionList = ({
           </header>
           <footer
             className={`suggestion-list__footer ${
-              windowWidth >= 768 && pathname === '/' ? 'd-none' : null
+              windowWidth >= 768 && pathname === '/product-feedback-app'
+                ? 'd-none'
+                : null
             }`}>
             <Upvote direction={'row'} upvotes={suggestion.upvotes} />
             <Comments

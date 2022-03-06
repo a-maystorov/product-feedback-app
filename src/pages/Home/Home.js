@@ -129,7 +129,7 @@ const Home = ({
       <div className={windowWidth >= 1366 ? 'desktop-container' : null}>
         <header
           className={`Home__header ${
-            menuOpen && pathname === '/' ? 'dark' : null
+            menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
           } ${windowWidth >= 768 ? 'container' : null}`}>
           {windowWidth >= 768 && (
             <div className="suggestions-status">
@@ -158,7 +158,10 @@ const Home = ({
             <Button bgColor={'purple'} content={'+ Add Feedback'} />
           </Link>
         </header>
-        <main className={menuOpen && pathname === '/' ? 'dark' : null}>
+        <main
+          className={
+            menuOpen && pathname === '/product-feedback-app' ? 'dark' : null
+          }>
           <SuggestionList
             suggestions={suggestions}
             menuOpen={menuOpen}

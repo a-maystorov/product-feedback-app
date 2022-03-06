@@ -42,7 +42,7 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
       (suggestion) => suggestion.id !== parseFloat(id)
     );
 
-    setTimeout(() => navigate('/'), 2000);
+    setTimeout(() => navigate('/product-feedback-app'), 2000);
 
     setSuggestions(newSuggestions);
     setDeleteSucess('Feedback has been deleted!');
@@ -70,7 +70,9 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
 
   return (
     <div className="edit-suggestion--container">
-      <Link to={`/suggestion-details/${id}`} className="back-btn">
+      <Link
+        to={`/product-feedback-app/suggestion-details/${id}`}
+        className="back-btn">
         <BackButton theme={'light'} />
       </Link>
       <div className="edit-icon">
@@ -163,7 +165,7 @@ const EditSuggestion = ({ suggestions, setSuggestions, windowWidth }) => {
               <Button bgColor={'purple'} content={'Save Changes'} />
             </div>
             <Link
-              to={`/suggestion-details/${id}`}
+              to={`/product-feedback-app/suggestion-details/${id}`}
               className="create-suggestion--cancel-btn"
               onClick={() => {
                 setNewTitle('');
