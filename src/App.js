@@ -53,7 +53,7 @@ const App = () => {
     <div className={`App ${menuOpen && pathname === '/' ? 'dark' : null}`}>
       <Routes>
         <Route
-          path="/"
+          path="/product-feedback-app"
           element={
             <Home
               suggestionRequests={suggestions}
