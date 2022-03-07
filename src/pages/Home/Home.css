@@ -82,6 +82,7 @@
   .Home nav {
     flex-direction: column;
     padding-top: 0;
+    gap: 2.4rem;
   }
 
   .suggestions-status {
