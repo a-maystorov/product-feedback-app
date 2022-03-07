@@ -57,7 +57,8 @@ Users should be able to:
 This was a very fun project to build and the whole process was a huge learning experience, from managing state, conditional rendering, passing props, routing, working with arrays and so much more. I would need to write a full blog post about every single detail. 😆
 
 Throughout the project one piece of code that I am very happy how it worked out and pround of is the way I handled sorting the suggestions by category and other criteria:
-**Note: I am not sure if this is the most optimal or efficient way to solve this problem but this was what I was able to come up with and I stuck with it... 😅**
+
+- **Note: I am not sure if this is the most optimal or efficient way to solve this problem but this was what I was able to come up with and I stuck with it... 😅**
 
 ```js
 const [currentCategory, setCurrentCategory] = useState('all');
