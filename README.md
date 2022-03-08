@@ -4,17 +4,17 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 
 ## 📑 Table of contents
 
-- [Overview](#overview)
+- [Overview 👁‍🗨](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshots](#screenshots)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+  - [Screenshots 📸](#screenshots)
+  - [Links 🔗](#links)
+- [My process ⚙](#my-process)
+  - [Built with 🛠](#built-with)
+  - [What I learned 📚](#what-i-learned)
+  - [Useful resources 🔍](#useful-resources)
+- [Author 🖋](#author)
 
-## 👁‍🗨 Overview
+## Overview
 
 ### The challenge
 
@@ -30,21 +30,21 @@ Users should be able to:
     ✅ Upvote product feedback requests
     ❌ **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-### 📸 Screenshots
+### Screenshots
 
 ![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-desktop.jpeg?raw=true)
 ![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-tablet-mobile.png?raw=true)
 ![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/create-edit.png?raw=true)
 ![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/details-desktop.jpeg?raw=true)
 
-### 🔗 Links
+### Links
 
 - Solution URL: [Repo](https://github.com/SirDev97/product-feedback-app)
 - Live Site URL: [GH-Pages](https://sirdev97.github.io/product-feedback-app/)
 
-## ⚙ My process
+## My process
 
-### 🛠 Built with
+### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
@@ -52,7 +52,7 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 
-### 📚 What I learned
+### What I learned
 
 This was a very fun project to build and the whole process was a huge learning experience, from managing state, conditional rendering, passing props, routing, working with arrays and so much more. I would need to write a full blog post about every single detail. 😆
 
@@ -125,11 +125,11 @@ const suggestions = sortedSuggestions
   : null;
 ```
 
-### 🔍 Useful resources
+### Useful resources
 
 - [SPA with GH-Pages](https://github.com/rafgraph/spa-github-pages) - This was a very useful resource when deploying a SPA to GH-Pages since it does not support React SPA's natively. Huge props to the author, helped me alot during the deployment process.
 
-## 🖋 Author
+## Author
 
 - LinkedIn - [Alkin Maystorov](https://www.linkedin.com/in/alkin-maystorov/)
 - Frontend Mentor - [@SirDev97](https://www.frontendmentor.io/profile/SirDev97)
