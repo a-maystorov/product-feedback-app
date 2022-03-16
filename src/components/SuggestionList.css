@@ -23,6 +23,10 @@
   text-decoration: none;
 }
 
+.suggestion-details__link h2:hover {
+  color: var(--color-blue-primary);
+}
+
 .suggestion-list__header h2 {
   font-weight: 700;
   font-size: 1.3rem;
