@@ -5,7 +5,7 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 ## 📑 Table of contents
 
 - [Overview 👁‍🗨](#overview)
-  - [The challenge](#the-challenge)
+  - [Requirements ](#requirements)
   - [Screenshots 📸](#screenshots)
   - [Links 🔗](#links)
 - [My process ⚙](#my-process)
@@ -16,7 +16,7 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 
 ## Overview
 
-### The challenge
+### Requirements 
 
 Users should be able to:
 
