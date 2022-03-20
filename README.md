@@ -133,4 +133,4 @@ const suggestions = sortedSuggestions
 
 - LinkedIn - [Alkin Maystorov](https://www.linkedin.com/in/alkin-maystorov/)
 - Frontend Mentor - [@SirDev97](https://www.frontendmentor.io/profile/SirDev97)
-- Website - [Alkin Maystorov](https://www.alkinmaystorov.com)
+- Website - [alkinmaystorov.com](https://www.alkinmaystorov.com)
