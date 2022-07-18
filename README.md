@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Repo](https://github.com/SirDev97/product-feedback-app)
-- Live Site URL: [GH-Pages](https://sirdev97.github.io/product-feedback-app/)
+- Solution URL: [Repo](https://github.com/a-maystorov/product-feedback-app)
+- Live Site URL: [GH-Pages](https://a-maystorov.github.io/product-feedback-app/)
 
 ## My process
 
