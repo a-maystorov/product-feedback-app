@@ -54,76 +54,9 @@ Users should be able to:
 
 ### What I learned
 
-This was a fun project to build, and the whole process was a huge learning experience, from managing state, conditional rendering, passing props, routing, working with arrays, and more. I would need to write an entire blog post about every single detail. 😆
+This was a fun project to build, and the whole process was a huge learning experience, from managing state, conditional rendering, passing props, routing, working with arrays, and more.
 
-Throughout the project, one piece of code that I am pleased with how it worked out and proud of is the way I handled sorting the suggestions by category and other criteria:
-
-- **Note: I am not sure if this is the most optimal or efficient way to solve this problem, but this was what I was able to come up with, and I stuck with it... 😅**
-
-```js
-const [currentCategory, setCurrentCategory] = useState('all');
-const [currentSortCriteria, setCurrentSortCriteria] = useState('Most Upvotes');
-
-const changeCategory = (newCategory) => setCurrentCategory(newCategory);
-const changeSortCriteria = (newCriteria) => setCurrentSortCriteria(newCriteria);
-
-const sortedSuggestions = suggestionRequests
-  ? suggestionRequests.sort((a, b) => {
-      const commentsA = a.comments ? a.comments.length : 0;
-      const commentsB = b.comments ? b.comments.length : 0;
-
-      const repliesA = a.comments ? a.comments : [];
-      const filteredRepliesA = repliesA.filter((comment) => {
-        return comment.replies ? comment.replies : null;
-      });
-
-      const repliesB = b.comments ? b.comments : [];
-      const filteredRepliesB = repliesB.filter((comment) => {
-        return comment.replies ? comment.replies : null;
-      });
-
-      const repliesLengthA = filteredRepliesA[0]
-        ? filteredRepliesA[0].replies.length
-        : 0;
-      const repliesLengthB = filteredRepliesB[0]
-        ? filteredRepliesB[0].replies.length
-        : 0;
-
-      const A = commentsA + repliesLengthA;
-      const B = commentsB + repliesLengthB;
-
-      switch (currentSortCriteria) {
-        case 'Most Upvotes':
-          return b.upvotes - a.upvotes;
-        case 'Least Upvotes':
-          return a.upvotes - b.upvotes;
-        case 'Most Comments':
-          return B - A;
-        case 'Least Comments':
-          return A - B;
-        default:
-          return b.upvotes - a.upvotes;
-      }
-    })
-  : null;
-
-const suggestions = sortedSuggestions
-  ? sortedSuggestions.filter((suggestion) => {
-      switch (currentCategory) {
-        case 'all':
-          return true;
-        case 'UI':
-        case 'UX':
-        case 'enhancement':
-        case 'bug':
-        case 'feature':
-          return suggestion.category === currentCategory;
-        default:
-          return true;
-      }
-    })
-  : null;
-```
+- **Note: Some of the problems in this challenge are brute force solutions and I am awere that I could have avoided some prop drilling issues with context.**
 
 ### Useful resources
 
