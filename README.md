@@ -66,4 +66,4 @@ This was a fun project to build, and the whole process was a huge learning exper
 
 - LinkedIn - [Alkin Maystorov](https://www.linkedin.com/in/alkin-maystorov/)
 - Frontend Mentor - [@SirDev97](https://www.frontendmentor.io/profile/SirDev97)
-- Website - [alkinmaystorov.com](https://www.alkinmaystorov.com)
+- Website - [alkinmaystorov.com](https://alkinmaystorov.com)
