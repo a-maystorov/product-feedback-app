@@ -1,69 +1,152 @@
-# Frontend Mentor - Product feedback app
+# Product Feedback App
 
-This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6).
+![React](https://img.shields.io/badge/React-17.0.2-61DAFB?logo=react&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-6.2.1-CA4245?logo=react-router&logoColor=white)
+![React Select](https://img.shields.io/badge/React_Select-5.2.2-2684FF?logo=react&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-222222?logo=github&logoColor=white)
 
-## 📑 Table of contents
+A fully responsive and interactive product feedback application built with React. This application allows users to manage product feedback through a clean, intuitive interface with robust CRUD functionality, advanced filtering, and sorting capabilities.
 
-- [Overview 👁‍🗨](#overview)
-  - [Requirements ](#requirements)
-  - [Screenshots 📸](#screenshots)
-  - [Links 🔗](#links)
-- [My process ⚙](#my-process)
-  - [Built with 🛠](#built-with)
-  - [What I learned 📚](#what-i-learned)
-  - [Useful resources 🔍](#useful-resources)
-- [Author 🖋](#author)
+## 🚀 Features
 
-## Overview
+- **Complete CRUD Operations**: Create, read, update, and delete product feedback requests
+- **Interactive UI**: Responsive design with hover states for all interactive elements
+- **Advanced Filtering**: Filter suggestions by category (UI, UX, Enhancement, Bug, Feature)
+- **Smart Sorting**: Sort suggestions by most/least upvotes and most/least comments
+- **Engagement Features**: Add comments and replies to feedback requests
+- **Voting System**: Upvote product feedback requests to prioritize them
+- **Form Validation**: Comprehensive validation when creating/editing feedback
+- **Adaptive Layout**: Optimized views for desktop, tablet, and mobile devices
 
-### Requirements 
+## 📸 Screenshots
 
-Users should be able to:
+<p align="center">
+  <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-desktop.jpeg?raw=true" alt="Desktop Home" width="600"/>
+  <em>Desktop Home View</em>
+</p>
 
-    ✅ View the optimal layout for the app depending on their device's screen size
-    ✅ See hover states for all interactive elements on the page
-    ✅ Create, read, update, and delete product feedback requests
-    ✅ Receive form validations when trying to create/edit feedback requests
-    ✅ Sort suggestions by most/least upvotes and most/least comments
-    ✅ Filter suggestions by category
-    ✅ Add comments and replies to a product feedback request
-    ✅ Upvote product feedback requests
-    ❌ **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+<p align="center">
+  <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-tablet-mobile.png?raw=true" alt="Tablet and Mobile Views" width="600"/>
+  <em>Responsive Design: Tablet and Mobile Views</em>
+</p>
 
-### Screenshots
+<p align="center">
+  <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/create-edit.png?raw=true" alt="Create and Edit Forms" width="600"/>
+  <em>Create and Edit Feedback Forms</em>
+</p>
 
-![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-desktop.jpeg?raw=true)
-![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-tablet-mobile.png?raw=true)
-![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/create-edit.png?raw=true)
-![](https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/details-desktop.jpeg?raw=true)
+<p align="center">
+  <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/details-desktop.jpeg?raw=true" alt="Feedback Details" width="600"/>
+  <em>Feedback Details with Comments and Replies</em>
+</p>
 
-### Links
+## 🔗 Live Demo and Repository
 
-- Solution URL: [Repo](https://github.com/a-maystorov/product-feedback-app)
-- Live Site URL: [GH-Pages](https://a-maystorov.github.io/product-feedback-app/)
+- **Live Demo**: [Product Feedback App](https://a-maystorov.github.io/product-feedback-app/)
+- **GitHub Repository**: [github.com/a-maystorov/product-feedback-app](https://github.com/a-maystorov/product-feedback-app)
 
-## My process
+## 🛠️ Technology Stack
 
-### Built with
+### Core Technologies
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
+- **React 17**: Component-based UI library for building the interface
+- **React Router 6**: For client-side routing and navigation
+- **React Select**: Advanced select input control for enhanced UX
+- **CSS3**: Custom properties, flexible layouts, and responsive design
+- **JavaScript ES6+**: Modern JavaScript features and syntax
+- **GitHub Pages**: Hosting and deployment platform
 
-### What I learned
+### Development Methodology
 
-This was a fun project to build, and the whole process was a huge learning experience, from managing state, conditional rendering, passing props, routing, working with arrays, and more.
+- **Mobile-First Approach**: Designed for mobile devices first, then enhanced for larger screens
+- **Component Architecture**: Modular, reusable React components
+- **Semantic HTML5**: Meaningful markup improving accessibility and SEO
+- **Single Page Application**: Smooth, app-like user experience
 
-- **Note: Some of the problems in this challenge are brute force solutions and I am awere that I could have avoided some prop drilling issues with context.**
+## 🔧 Installation and Setup
 
-### Useful resources
+```bash
+# Clone the repository
+git clone https://github.com/a-maystorov/product-feedback-app.git
+cd product-feedback-app
 
-- [SPA with GH-Pages](https://github.com/rafgraph/spa-github-pages) - This was a handy resource when deploying a SPA to GH-Pages since it does not support React SPA's natively. Huge props to the author; this repository helped me figure out many of my questions during the deployment process.
+# Install dependencies
+npm install
 
-## Author
+# Start development server
+npm start
 
-- LinkedIn - [Alkin Maystorov](https://www.linkedin.com/in/alkin-maystorov/)
-- Frontend Mentor - [@SirDev97](https://www.frontendmentor.io/profile/SirDev97)
-- Website - [alkinmaystorov.com](https://alkinmaystorov.com)
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+## 📝 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── pages/            # Page components for different routes
+├── data.json         # Mock data for the application
+├── App.js            # Main application component
+├── App.css           # Application styles
+├── index.js          # Entry point
+└── index.css         # Global styles
+```
+
+## 💡 Technical Highlights
+
+- **State Management**: Efficient state handling for dynamic content updates
+- **Conditional Rendering**: Smart rendering based on application state
+- **Component Communication**: Props passing for data flow between components
+- **Form Handling**: Comprehensive form validation and submission logic
+- **Dynamic Routing**: URL-based navigation with React Router
+- **Data Transformation**: Sorting and filtering of feedback items
+- **User Interaction**: Interactive elements with appropriate visual feedback
+
+## 📚 Implementation Challenges & Solutions
+
+- **Complex State Management**: Implemented a structured approach to manage feedback items, comments, and user interactions
+- **Responsive Design**: Created a fluid layout that adapts seamlessly across device sizes
+- **Form Validation**: Built robust validation for feedback creation and editing
+- **SPA Deployment**: Resolved GitHub Pages SPA routing issues with custom configuration
+
+## 🌟 Skills Demonstrated
+
+This project demonstrates proficiency in:
+
+- **Front-End Development**: Building responsive and interactive web applications
+- **React Ecosystem**: Working with React and related libraries
+- **State Management**: Managing application state efficiently
+- **UI/UX Design Implementation**: Translating design requirements into functional interfaces
+- **Problem Solving**: Finding solutions for complex implementation challenges
+- **Clean Code Practices**: Writing maintainable and structured code
+
+## 🔍 Future Enhancements
+
+- Add persistent storage with localStorage or backend integration
+- Implement user authentication system
+- Add dark/light theme toggle
+- Enhance accessibility features
+- Implement unit and integration tests
+
+## 👤 About the Developer
+
+**Alkin Maystorov** - Front-End Developer with a passion for creating engaging user experiences
+
+- **Portfolio**: [alkinmaystorov.com](https://alkinmaystorov.com)
+- **LinkedIn**: [linkedin.com/in/alkin-maystorov](https://www.linkedin.com/in/alkin-maystorov/)
+- **GitHub**: [github.com/a-maystorov](https://github.com/a-maystorov)
+
+## 📄 License
+
+This project is based on a challenge by [Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6).
+
+---
+
+⭐ Designed and developed with passion by Alkin Maystorov ⭐
