@@ -33,7 +33,6 @@ A fully responsive and interactive product feedback application built with React
 
 <p align="center">
   <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-tablet-mobile.png?raw=true" alt="Tablet and Mobile Views" width="600"/>
-  <em>Responsive Design: Tablet and Mobile Views</em>
 </p>
 
 <em>Create and Edit Forms</em>
