@@ -23,24 +23,29 @@ A fully responsive and interactive product feedback application built with React
 
 ## 📸 Screenshots
 
+<em>Desktop Home View</em>
+
 <p align="center">
   <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-desktop.jpeg?raw=true" alt="Desktop Home" width="600"/>
-  <em>Desktop Home View</em>
 </p>
+
+<em>Tablet and Mobile Views</em>
 
 <p align="center">
   <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/home-tablet-mobile.png?raw=true" alt="Tablet and Mobile Views" width="600"/>
   <em>Responsive Design: Tablet and Mobile Views</em>
 </p>
 
+<em>Create and Edit Forms</em>
+
 <p align="center">
   <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/create-edit.png?raw=true" alt="Create and Edit Forms" width="600"/>
-  <em>Create and Edit Feedback Forms</em>
 </p>
+
+<em>Feedback Details</em>
 
 <p align="center">
   <img src="https://github.com/SirDev97/product-feedback-app/blob/main/public/assets/solution-images/details-desktop.jpeg?raw=true" alt="Feedback Details" width="600"/>
-  <em>Feedback Details with Comments and Replies</em>
 </p>
 
 ## 🔗 Live Demo and Repository
